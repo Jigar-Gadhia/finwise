@@ -12,7 +12,7 @@ import CustomTabBar from '../../components/CustomTabBar';
 const Tab = createBottomTabNavigator();
 
 const BottomNavigation = () => {
-  const {colors, mode} = useAppTheme();
+  const {mode} = useAppTheme();
   const barStyle = mode === 'dark' ? 'light-content' : 'dark-content';
   return (
     <React.Fragment>

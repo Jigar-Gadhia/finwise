@@ -21,7 +21,6 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({state, navigation}) => {
   return (
     <View style={[styles.container, {backgroundColor: colors.tab}]}>
       {state.routes.map((route, index) => {
-        console.log(route.name);
         const focused = state.index === index;
 
         const onPress = () => {
