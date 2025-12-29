@@ -1,0 +1,30 @@
+export const LightColors = {
+  background: '#00D09E',
+  card: '#DFF7E2',
+  tab: '#F1FFF3',
+  primary: '#FFFFFF',
+  text: '#000000',
+  lightBlue: '#6DB6FE',
+  vividBlue: '#3299FF',
+  oceanBlue: '#0068FF',
+  caribbeanGreen: '#00D09E',
+  divider: '#DFF7E2',
+  amountPositive: '#F1FFF3',
+  amountOnProgress: '#052224',
+  progressTrack: '#031314',
+  progressFill: '#00D09E',
+  staticBlack: '#000000',
+  screenTitle: '#093030',
+  darkGreen: '#0E3E3E',
+};
+
+export const DarkColors = {
+  ...LightColors,
+  background: '#052224',
+  card: '#093030',
+  tab: '#0E3E3E',
+  primary: '#000000',
+  text: '#DFF7E2',
+  screenTitle: '#DFF7E2',
+  darkGreen: '#0E3E3E',
+};
