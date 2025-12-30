@@ -6,6 +6,7 @@ import IconComponent from './IconComponent';
 import {scale, verticalScale} from 'react-native-size-matters';
 import {LightColors} from '../theme/colors';
 import {icons} from '../utils/icons';
+import Animated, {ZoomIn, ZoomOut} from 'react-native-reanimated';
 
 const CustomTabBar: React.FC<BottomTabBarProps> = ({state, navigation}) => {
   const {colors} = useAppTheme();
@@ -30,20 +31,24 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({state, navigation}) => {
         };
 
         return (
-          <TouchableOpacity
-            key={route.key}
-            onPress={onPress}
-            activeOpacity={0.8}
-            style={styles.tab}>
-            <View style={[styles.iconWrapper, focused && styles.activeIcon]}>
-              <IconComponent
-                Icon={TAB_ICONS[route.name]}
-                height={28}
-                width={28}
-                color={focused ? 'primary' : 'text'}
-              />
-            </View>
-          </TouchableOpacity>
+          <Animated.View
+            key={`${route.key}${focused}`}
+            entering={ZoomIn}
+            exiting={ZoomOut}>
+            <TouchableOpacity
+              onPress={onPress}
+              activeOpacity={0.8}
+              style={styles.tab}>
+              <View style={[styles.iconWrapper, focused && styles.activeIcon]}>
+                <IconComponent
+                  Icon={TAB_ICONS[route.name]}
+                  height={28}
+                  width={28}
+                  color={focused ? 'primary' : 'text'}
+                />
+              </View>
+            </TouchableOpacity>
+          </Animated.View>
         );
       })}
     </View>
@@ -54,13 +59,13 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     position: 'absolute',
-    height: verticalScale(90),
+    height: verticalScale(95),
     width: '100%',
     bottom: 0,
     borderTopLeftRadius: scale(70),
     borderTopRightRadius: scale(70),
-    paddingHorizontal: scale(25),
-    paddingVertical: scale(20),
+    paddingHorizontal: scale(30),
+    paddingTop: scale(25),
     alignItems: 'center',
     justifyContent: 'space-between',
   },
