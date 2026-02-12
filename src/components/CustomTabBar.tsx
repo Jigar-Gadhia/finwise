@@ -42,8 +42,8 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({state, navigation}) => {
               <View style={[styles.iconWrapper, focused && styles.activeIcon]}>
                 <IconComponent
                   Icon={TAB_ICONS[route.name]}
-                  height={28}
-                  width={28}
+                  height={26}
+                  width={26}
                   color={focused ? 'primary' : 'text'}
                 />
               </View>

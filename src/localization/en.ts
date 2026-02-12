@@ -8,6 +8,8 @@ export const en = {
     expense: 'expense',
     income: 'income',
     myTargets: 'my targets',
+    theme: 'Turn on Dark Mode',
+    themeChange: 'Theme is changing !',
   },
 
   screenHeaders: {

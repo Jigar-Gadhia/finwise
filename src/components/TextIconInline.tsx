@@ -23,9 +23,9 @@ const TextIconInline: React.FC<TextIconInlineProps> = ({
     <View style={[styles.container, style]}>
       <IconComponent
         Icon={Icon}
-        height={scale(12)}
-        width={scale(12)}
-        color={'text'}
+        height={scale(9)}
+        width={scale(9)}
+        color="text"
       />
       <TextComponent disableLineHeight style={[styles.text, textStyle]}>
         {text}

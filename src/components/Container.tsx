@@ -1,55 +1,4 @@
-// import {StyleSheet, ViewStyle} from 'react-native';
-// import React, {ReactNode} from 'react';
-// import {useIsFocused, useTheme} from '@react-navigation/native';
-// import {SafeAreaView} from 'react-native-safe-area-context';
-// import ScreenHeader from './ScreenHeader';
-// import {t} from '../localization/t';
-// import {strings} from '../localization';
-// import Animated, {FadeInUp, FadeOutDown, ZoomIn, ZoomOut} from 'react-native-reanimated';
-
-// type ContainerProps = {
-//   children: ReactNode;
-//   style?: ViewStyle;
-//   home?: boolean;
-//   screenName?: string;
-//   showNoti?: boolean;
-// };
-
-// const Container: React.FC<ContainerProps> = ({
-//   children,
-//   style,
-//   screenName,
-//   home = false,
-//   showNoti = false,
-// }) => {
-//   const {colors} = useTheme();
-//   const focused = useIsFocused();
-//   return (
-//     <Animated.View
-//       key={`${focused}`}
-//       entering={ZoomIn}
-//       exiting={ZoomOut}
-//       style={styles.container}>
-//     <SafeAreaView
-//       edges={['top']}
-//       style={[styles.container, {backgroundColor: colors.background}, style]}>
-//         <ScreenHeader
-//           home={showNoti ? false : home}
-//           name={showNoti ? t(strings.screenHeaders.notifications) : screenName}
-//           showNoti={showNoti}
-//         />
-//         {children}
-//     </SafeAreaView>
-//       </Animated.View>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-//   container: {flex: 1},
-// });
-
-// export default Container;
-import {StyleSheet, ViewStyle} from 'react-native';
+import {StatusBar, StyleSheet, ViewStyle} from 'react-native';
 import React, {ReactNode, useEffect} from 'react';
 import {useIsFocused, useTheme} from '@react-navigation/native';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -77,7 +26,7 @@ const Container: React.FC<ContainerProps> = ({
   home = false,
   showNoti = false,
 }) => {
-  const {colors} = useTheme();
+  const {colors, dark} = useTheme();
   const focused = useIsFocused();
 
   const scale = useSharedValue(0.95);
@@ -100,6 +49,10 @@ const Container: React.FC<ContainerProps> = ({
 
   return (
     <Animated.View style={[styles.container, animatedStyle]}>
+      <StatusBar
+        backgroundColor={colors.background}
+        barStyle={dark ? 'light-content' : 'dark-content'}
+      />
       <SafeAreaView
         edges={['top']}
         style={[styles.container, {backgroundColor: colors.background}, style]}>

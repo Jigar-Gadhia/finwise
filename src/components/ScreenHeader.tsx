@@ -39,8 +39,8 @@ const ScreenHeader: React.FC<ScreenHeaderProps> = ({
             <TouchableOpacity onPress={goBack}>
               <IconComponent
                 Icon="backArrow"
-                height={scale(22)}
-                width={scale(22)}
+                height={scale(15)}
+                width={scale(15)}
               />
             </TouchableOpacity>
             <TextComponent variant="title" color="screenTitle">
@@ -51,8 +51,8 @@ const ScreenHeader: React.FC<ScreenHeaderProps> = ({
         <TouchableOpacity onPress={onPressNotificationIcon} disabled={showNoti}>
           <IconComponent
             Icon={showNoti ? 'notiActive' : 'notiInactive'}
-            height={30}
-            width={30}
+            height={28}
+            width={28}
           />
         </TouchableOpacity>
       </View>
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: scale(25),
-    paddingHorizontal: scale(15),
+    paddingHorizontal: scale(25),
   },
   homeContainer: {
     alignItems: 'flex-start',

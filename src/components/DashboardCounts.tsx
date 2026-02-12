@@ -15,10 +15,7 @@ const DashboardCounts: React.FC = () => {
     <View style={styles.mainContainer}>
       <View style={styles.container}>
         <View>
-          <TextIconInline
-            Icon={'arrowUp'}
-            text={t(strings.balance.totalBalance)}
-          />
+          <TextIconInline Icon="arrowUp" text={strings.balance.totalBalance} />
           <TextComponent
             weight="bold"
             variant="title"
@@ -61,30 +58,31 @@ const styles = StyleSheet.create({
   mainContainer: {
     alignItems: 'center',
     gap: scale(15),
+    width: '92%',
+    alignSelf: 'center',
   },
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    gap: scale(30),
+    justifyContent: 'space-around',
+    width: '90%',
   },
   saperator: {
-    width: scale(2),
-    height: '100%',
+    width: scale(1),
+    height: '90%',
   },
   priceStyle: {
-    fontSize: scale(24),
+    fontSize: scale(20),
   },
   progressBarContainer: {
-    width: '100%',
-    paddingHorizontal: scale(20),
+    width: '85%',
     gap: scale(8),
   },
   textContainerStyle: {
-    marginLeft: scale(12),
+    marginLeft: scale(3),
   },
   textStyle: {
-    fontSize: scale(15),
+    fontSize: scale(12),
   },
 });
 

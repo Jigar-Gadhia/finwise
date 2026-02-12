@@ -56,7 +56,9 @@ const AnalysisScreen: React.FC = () => {
                 textColor={'text'}
                 textSize={20}
               />
-              <TextComponent variant="subtitle">Travel</TextComponent>
+              <TextComponent variant="subtitle" color="primary">
+                Travel
+              </TextComponent>
             </View>
             <View
               style={[styles.progressBox, {backgroundColor: colors.lightBlue}]}>
@@ -70,7 +72,10 @@ const AnalysisScreen: React.FC = () => {
                 textColor={'text'}
                 textSize={20}
               />
-              <TextComponent variant="subtitle" disableLineHeight>
+              <TextComponent
+                variant="subtitle"
+                disableLineHeight
+                color="primary">
                 Car
               </TextComponent>
             </View>

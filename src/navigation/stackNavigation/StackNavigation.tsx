@@ -9,6 +9,7 @@ import {
 } from '@react-navigation/native';
 import {AppThemeProvider, useAppTheme} from '../../theme/ThemeContext';
 import {navigationRef} from '../../utils/navigationService';
+import BootSplash from 'react-native-bootsplash';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,8 +28,12 @@ const AppNavigator = () => {
       notification: colors.vividBlue,
     },
   };
+
+  const onReady = async () => {
+    await BootSplash.hide({fade: true});
+  };
   return (
-    <NavigationContainer theme={navTheme} ref={navigationRef}>
+    <NavigationContainer theme={navTheme} ref={navigationRef} onReady={onReady}>
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name={screenNames.Tab} component={BottomNavigation} />
       </Stack.Navigator>

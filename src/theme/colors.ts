@@ -1,7 +1,7 @@
 export const LightColors = {
   background: '#00D09E',
-  card: '#DFF7E2',
-  tab: '#F1FFF3',
+  card: '#F1FFF3',
+  tab: '#DFF7E2',
   primary: '#FFFFFF',
   text: '#000000',
   lightBlue: '#6DB6FE',
@@ -16,6 +16,7 @@ export const LightColors = {
   staticBlack: '#000000',
   screenTitle: '#093030',
   darkGreen: '#0E3E3E',
+  staticWhite: '#FFFFFF',
 };
 
 export const DarkColors = {
@@ -27,4 +28,5 @@ export const DarkColors = {
   text: '#DFF7E2',
   screenTitle: '#DFF7E2',
   darkGreen: '#0E3E3E',
+  staticWhite: '#FFFFFF',
 };

@@ -12,7 +12,10 @@ const ProgressBar: React.FC = () => {
   const {colors} = useAppTheme();
   return (
     <View style={[styles.container, {backgroundColor: colors.progressTrack}]}>
-      <TextComponent weight="regular" style={styles.percentageStyle}>
+      <TextComponent
+        weight="regular"
+        style={styles.percentageStyle}
+        color="staticWhite">
         {t(strings.common.percentage, {value: 30})}
       </TextComponent>
       <View
@@ -48,7 +51,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     height: scale(27),
     borderRadius: scale(13.5),
-    bottom: scale(1.5),
+    top: scale(-1.1),
     justifyContent: 'center',
     paddingRight: scale(10),
   },

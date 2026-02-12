@@ -20,5 +20,6 @@ module.exports = {
     // ❌ Disable default rules to avoid conflicts
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
+    'react-native/no-inline-styles': 'off',
   },
 };

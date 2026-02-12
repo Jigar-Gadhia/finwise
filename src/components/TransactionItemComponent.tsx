@@ -32,7 +32,7 @@ const TransactionItemComponent: React.FC<TransactionItemComponentProps> = ({
               type === 'expense' ? colors.oceanBlue : colors.lightBlue,
           },
         ]}>
-        <IconComponent Icon={icon} height={26} width={26} />
+        <IconComponent Icon={icon} height={26} width={26} color="staticWhite" />
       </View>
       <View style={styles.labelStyle}>
         <TextComponent variant="subtitle">{label}</TextComponent>

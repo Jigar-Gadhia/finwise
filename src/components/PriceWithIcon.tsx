@@ -37,6 +37,7 @@ const PriceWithIcon: React.FC<PriceWithIconProps> = ({
         </TextComponent>
         <TextComponent
           weight="bold"
+          customLineHeight={16}
           color={color}
           style={[
             styles.priceStyle,

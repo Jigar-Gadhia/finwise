@@ -11,18 +11,24 @@ interface NotificationItemProps {
 }
 
 const NotificationItemComponent: React.FC<NotificationItemProps> = ({item}) => {
-  const {description, icon, id, time, title, type, meta} = item;
+  const {description, icon, time, title, meta} = item;
   return (
     <View style={styles.container}>
       <View style={styles.rowContainer}>
-        <IconComponent Icon={icon} height={37} width={37} />
+        <IconComponent Icon={icon} height={32} width={32} />
         <View style={styles.colContainer}>
           <TextComponent variant="subtitle">{title}</TextComponent>
-          <TextComponent variant="subtext" ellipsizeMode="tail">
+          <TextComponent
+            variant="subtext"
+            ellipsizeMode="tail"
+            customLineHeight={14}>
             {description}
           </TextComponent>
           {meta && (
-            <TextComponent variant="subtext" color="caribbeanGreen">
+            <TextComponent
+              variant="subtext"
+              color="caribbeanGreen"
+              disableLineHeight>
               {meta}
             </TextComponent>
           )}

@@ -10,7 +10,7 @@ import TextComponent from './TextComponent';
 const Saparator = () => {
   return (
     <View style={styles.saparator}>
-      <RowDevider color="amountPositive" />
+      <RowDevider color="caribbeanGreen" />
     </View>
   );
 };
@@ -33,7 +33,9 @@ const NotificationList: React.FC = () => {
         }}
         renderSectionHeader={({section}) => (
           <View style={styles.sectionHeaderStyle}>
-            <TextComponent variant="subtext">{section.title}</TextComponent>
+            <TextComponent variant="subtext" disableLineHeight>
+              {section.title}
+            </TextComponent>
           </View>
         )}
         stickySectionHeadersEnabled={false}
@@ -49,6 +51,7 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: scale(25),
     paddingHorizontal: scale(25),
+    paddingBottom: scale(110),
   },
   sectionHeaderStyle: {
     marginBottom: scale(10),

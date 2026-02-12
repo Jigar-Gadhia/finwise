@@ -14,6 +14,7 @@ type Props = TextProps & {
   weight?: FontWeight;
   disableLineHeight?: boolean;
   capitalised?: boolean;
+  customLineHeight?: number;
 };
 
 const TextComponent: React.FC<Props> = ({
@@ -23,6 +24,7 @@ const TextComponent: React.FC<Props> = ({
   weight,
   disableLineHeight = false,
   capitalised = false,
+  customLineHeight,
   style,
   children,
   ...rest
@@ -45,7 +47,11 @@ const TextComponent: React.FC<Props> = ({
           textTransform: capitalised ? 'capitalize' : 'none',
           ...(disableLineHeight
             ? null
-            : {lineHeight: fontScale(base.lineHeight)}),
+            : {
+                lineHeight: customLineHeight
+                  ? fontScale(customLineHeight)
+                  : fontScale(base.lineHeight),
+              }),
         },
         style,
       ]}>
