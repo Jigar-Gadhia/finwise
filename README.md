@@ -1,79 +1,149 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# FinWise 💰
 
-# Getting Started
+A beautiful, production-ready **React Native template** for building expense tracking applications. FinWise comes with pre-made UI components, dynamic theming, and a robust architecture to kickstart your financial management app.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## ✨ Features
 
-## Step 1: Start the Metro Server
+- 🎨 **Pre-made UI Components** - Ready-to-use components built with React Native Skia and Reanimated for smooth animations
+- 🌓 **Dynamic Theming** - Light/Dark mode support with a flexible theming system
+- 📊 **Chart Components** - Beautiful charts powered by react-native-skia for expense visualization
+- 🧭 **Navigation** - Pre-configured React Navigation with bottom tabs and stack navigation
+- 🔄 **State Management** - Redux Toolkit with Redux Persist for data persistence
+- 📱 **Responsive Design** - Adaptive layouts using react-native-size-matters
+- 🚀 **Performance Optimized** - Native splash screen and optimized rendering
+- 💅 **Modern Stack** - TypeScript, ESLint, Prettier, and Husky pre-configured
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## 🎯 Tech Stack
 
-To start Metro, run the following command from the _root_ of your React Native project:
+- **React Native 0.72.9**
+- **TypeScript**
+- **Redux Toolkit** - State management
+- **React Navigation** - Routing and navigation
+- **React Native Reanimated** - Smooth animations
+- **React Native Skia** - Advanced graphics
+- **React Native Linear Gradient** - Gradient backgrounds
+- **Redux Persist** - State persistence
+
+## 📋 Prerequisites
+
+Before you begin, ensure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions up to "Creating a new application" step.
+
+**Requirements:**
+- Node.js >= 16
+- Yarn or npm
+- Xcode (for iOS development)
+- Android Studio (for Android development)
+
+## 🚀 Getting Started
+
+### Step 1: Install Dependencies
 
 ```bash
-# using npm
-npm start
+# using Yarn (recommended)
+yarn install
 
-# OR using Yarn
+# OR using npm
+npm install
+```
+
+### Step 2: Install iOS Pods (iOS only)
+
+```bash
+cd ios
+pod install
+cd ..
+```
+
+### Step 3: Start Metro Bundler
+
+```bash
+# using Yarn
 yarn start
+
+# OR using npm
+npm start
 ```
 
-## Step 2: Start your Application
+### Step 4: Run the Application
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+Open a new terminal from the root of the project and run:
 
-### For Android
+#### For Android
 
 ```bash
-# using npm
-npm run android
-
-# OR using Yarn
+# using Yarn
 yarn android
+
+# OR using npm
+npm run android
 ```
 
-### For iOS
+#### For iOS
 
 ```bash
-# using npm
-npm run ios
-
-# OR using Yarn
+# using Yarn
 yarn ios
+
+# OR using npm
+npm run ios
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+If everything is set up correctly, you should see the FinWise app running on your emulator/simulator.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+## 🎨 Design
 
-## Step 3: Modifying your App
+### Figma Design
 
-Now that you have successfully run the app, let's modify it.
+🔗 **[View Figma Design]([https://your-figma-link-here](https://www.figma.com/design/Ukj3xkRHir1Mnzb0oEV4FB/Finance-Management-Mobile-App-UI-UX-Kit-for-Budget-Tracker-Financial-Prototype-Design--Community-?node-id=7388-3143&p=f&t=xPq9D7lqavUilQu6-0))**
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+### Screenshots
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+_Screenshots will be added soon_
 
-## Congratulations! :tada:
+<!-- 
+Add your screenshots here using:
+![Home Screen](./screenshots/home.png)
+![Expenses](./screenshots/expenses.png)
+![Analytics](./screenshots/analytics.png)
+-->
 
-You've successfully run and modified your React Native App. :partying_face:
+## 📚 Available Scripts
 
-### Now what?
+- `yarn start` - Start Metro bundler
+- `yarn android` - Run Android app
+- `yarn ios` - Run iOS app
+- `yarn lint` - Run ESLint
+- `yarn typecheck` - Run TypeScript type checking
+- `yarn test` - Run tests
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+## 🏗️ Project Structure
 
-# Troubleshooting
+```
+finwise/
+├── src/
+│   ├── components/     # Reusable UI components
+│   ├── screens/        # Screen components
+│   ├── navigation/     # Navigation configuration
+│   ├── store/          # Redux store and slices
+│   ├── theme/          # Theme configuration
+│   └── utils/          # Utility functions
+├── android/            # Android native code
+├── ios/                # iOS native code
+└── App.tsx             # Root component
+```
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## 🤝 Contributing
 
-# Learn More
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-To learn more about React Native, take a look at the following resources:
+## 📄 License
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+Built with ❤️ using React Native and modern development tools.
+
+---
+
+**Happy Coding!** 🚀
