@@ -94,7 +94,7 @@ If everything is set up correctly, you should see the FinWise app running on you
 
 ### Figma Design
 
-🔗 **[View Figma Design]([https://your-figma-link-here](https://www.figma.com/design/Ukj3xkRHir1Mnzb0oEV4FB/Finance-Management-Mobile-App-UI-UX-Kit-for-Budget-Tracker-Financial-Prototype-Design--Community-?node-id=7388-3143&p=f&t=xPq9D7lqavUilQu6-0))**
+🔗 **[View Figma Design](https://www.figma.com/design/Ukj3xkRHir1Mnzb0oEV4FB/Finance-Management-Mobile-App-UI-UX-Kit-for-Budget-Tracker-Financial-Prototype-Design--Community-?node-id=7388-3143&p=f&t=xPq9D7lqavUilQu6-0)**
 
 ### Screenshots
 
