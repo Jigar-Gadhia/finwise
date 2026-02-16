@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   intputContainer: {
     paddingHorizontal: scale(10),
     paddingLeft: scale(30),
-    paddingVertical: scale(9),
+    height: scale(36),
     backgroundColor: LightColors.divider,
     borderRadius: scale(18),
     flexDirection: 'row',
