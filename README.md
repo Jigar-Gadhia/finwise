@@ -24,6 +24,15 @@ A beautiful, production-ready **React Native template** for building expense tra
 - **React Native Linear Gradient** - Gradient backgrounds
 - **Redux Persist** - State persistence
 
+## 📦 Releases
+
+[![GitHub release](https://img.shields.io/github/release/Jigar-Gadhia/finwise.svg)](https://github.com/Jigar-Gadhia/finwise/releases)
+[![GitHub all releases](https://img.shields.io/github/downloads/Jigar-Gadhia/finwise/total.svg)](https://github.com/Jigar-Gadhia/finwise/releases)
+
+Check out the [latest releases](https://github.com/Jigar-Gadhia/finwise/releases) for new features, improvements, and bug fixes.
+
+**Latest Version:** See [Releases](https://github.com/Jigar-Gadhia/finwise/releases/latest)
+
 ## 📋 Prerequisites
 
 Before you begin, ensure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions up to "Creating a new application" step.
