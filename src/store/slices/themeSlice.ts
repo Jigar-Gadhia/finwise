@@ -2,12 +2,14 @@ import {createSlice} from '@reduxjs/toolkit';
 
 export type ThemeMode = 'light' | 'dark';
 
-interface ThemeState {
+export interface ThemeState {
   mode: ThemeMode;
+  isFirstLaunch?: boolean;
 }
 
 const initialState: ThemeState = {
   mode: 'dark',
+  isFirstLaunch: true,
 };
 
 export const themeSlice = createSlice({
@@ -20,8 +22,11 @@ export const themeSlice = createSlice({
     setTheme: (state, action) => {
       state.mode = action.payload;
     },
+    completeOnboard: state => {
+      state.isFirstLaunch = false;
+    },
   },
 });
 
-export const {toggleTheme, setTheme} = themeSlice.actions;
+export const {toggleTheme, setTheme, completeOnboard} = themeSlice.actions;
 export default themeSlice.reducer;

@@ -74,7 +74,7 @@ const CircularProgress: React.FC<CircularProgressProps> = ({
             color={iconColor}
           />
         ) : (
-          <TextComponent variant="title" disableLineHeight color="primary">
+          <TextComponent variant="title" disableLineHeight color="text">
             {text}
           </TextComponent>
         )}

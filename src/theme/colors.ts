@@ -3,7 +3,7 @@ export const LightColors = {
   card: '#F1FFF3',
   tab: '#DFF7E2',
   primary: '#FFFFFF',
-  text: '#000000',
+  text: '#093030',
   lightBlue: '#6DB6FE',
   vividBlue: '#3299FF',
   oceanBlue: '#0068FF',
@@ -17,6 +17,10 @@ export const LightColors = {
   screenTitle: '#093030',
   darkGreen: '#0E3E3E',
   staticWhite: '#FFFFFF',
+  dot: '#00D09E',
+  border: '#000000',
+  placeholder: '#1B6B6B',
+  title: '#093030',
 };
 
 export const DarkColors = {
@@ -29,4 +33,7 @@ export const DarkColors = {
   screenTitle: '#DFF7E2',
   darkGreen: '#0E3E3E',
   staticWhite: '#FFFFFF',
+  dot: '#DFF7E2',
+  border: '#DFF7E2',
+  title: '#00D09E',
 };

@@ -56,7 +56,7 @@ const AnalysisScreen: React.FC = () => {
                 textColor={'text'}
                 textSize={20}
               />
-              <TextComponent variant="subtitle" color="primary">
+              <TextComponent variant="subtitle" color="text">
                 Travel
               </TextComponent>
             </View>
@@ -72,10 +72,7 @@ const AnalysisScreen: React.FC = () => {
                 textColor={'text'}
                 textSize={20}
               />
-              <TextComponent
-                variant="subtitle"
-                disableLineHeight
-                color="primary">
+              <TextComponent variant="subtitle" disableLineHeight color="text">
                 Car
               </TextComponent>
             </View>

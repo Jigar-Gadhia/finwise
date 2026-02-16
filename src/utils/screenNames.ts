@@ -10,4 +10,12 @@ export const screenNames = {
   QuicklyAnalysisScreen: 'QuicklyAnalysis',
   NotificationsScreen: 'NotificationsScreen',
   CommonScreen: 'CommonScreen',
+  OnBoardingScreen: 'OnBoardingScreen',
+  WelcomeScreen: 'WelcomeScreen',
+  LoginScreen: 'LoginScreen',
+  SignupScreen: 'SignupScreen',
+  ForgotPasswordScreen: 'ForgotPasswordScreen',
+  SecurityPinScreen: 'SecurityPinScreen',
+  NewPasswordScreen: 'NewPasswordScreen',
+  FingerprintScreen: 'FingerprintScreen',
 };

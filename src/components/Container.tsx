@@ -17,6 +17,8 @@ type ContainerProps = {
   home?: boolean;
   screenName?: string;
   showNoti?: boolean;
+  showHeader?: boolean;
+  bgColor?: keyof ReturnType<typeof useTheme>['colors'];
 };
 
 const Container: React.FC<ContainerProps> = ({
@@ -25,6 +27,8 @@ const Container: React.FC<ContainerProps> = ({
   screenName,
   home = false,
   showNoti = false,
+  showHeader = true,
+  bgColor = 'background',
 }) => {
   const {colors, dark} = useTheme();
   const focused = useIsFocused();
@@ -50,17 +54,21 @@ const Container: React.FC<ContainerProps> = ({
   return (
     <Animated.View style={[styles.container, animatedStyle]}>
       <StatusBar
-        backgroundColor={colors.background}
+        backgroundColor={colors[bgColor]}
         barStyle={dark ? 'light-content' : 'dark-content'}
       />
       <SafeAreaView
         edges={['top']}
-        style={[styles.container, {backgroundColor: colors.background}, style]}>
-        <ScreenHeader
-          home={showNoti ? false : home}
-          name={showNoti ? t(strings.screenHeaders.notifications) : screenName}
-          showNoti={showNoti}
-        />
+        style={[styles.container, {backgroundColor: colors[bgColor]}, style]}>
+        {showHeader && (
+          <ScreenHeader
+            home={showNoti ? false : home}
+            name={
+              showNoti ? t(strings.screenHeaders.notifications) : screenName
+            }
+            showNoti={showNoti}
+          />
+        )}
         {children}
       </SafeAreaView>
     </Animated.View>

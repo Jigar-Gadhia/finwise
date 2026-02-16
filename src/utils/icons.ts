@@ -33,6 +33,13 @@ import NotificationActive from '../assets/icons/noti-active.svg';
 import BackArrow from '../assets/icons/backArrow.svg';
 import Search from '../assets/icons/Search.svg';
 import Calender from '../assets/icons/Calender.svg';
+import Coin from '../assets/icons/onBoarding/coin.svg';
+import Phone from '../assets/icons/onBoarding/phone.svg';
+import WelcomeImage from '../assets/icons/welcome_image.svg';
+import Eye from '../assets/icons/form/eye.svg';
+import FB from '../assets/icons/fb.svg';
+import Google from '../assets/icons/google.svg';
+import Fingerprint from '../assets/icons/fingerprint.svg';
 
 export const icons = {
   home: Home,
@@ -70,4 +77,11 @@ export const icons = {
   backArrow: BackArrow,
   search: Search,
   calender: Calender,
+  coin: Coin,
+  phone: Phone,
+  welcomeImage: WelcomeImage,
+  eye: Eye,
+  fb: FB,
+  google: Google,
+  fingerprint: Fingerprint,
 };

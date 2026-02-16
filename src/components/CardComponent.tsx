@@ -22,7 +22,9 @@ const CardComponent: React.FC<CardComponentProps> = ({
       {scroll ? (
         <ScrollView
           contentContainerStyle={[styles.scrollStyle, scrollStyle]}
-          showsVerticalScrollIndicator={false}>
+          showsVerticalScrollIndicator={false}
+          overScrollMode="never"
+          keyboardShouldPersistTaps="always">
           {children}
         </ScrollView>
       ) : (

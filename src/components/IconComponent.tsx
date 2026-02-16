@@ -8,6 +8,7 @@ interface IconComponentProps {
   height?: number;
   width?: number;
   color?: keyof ReturnType<typeof useAppTheme>['colors'];
+  onPress?: () => void;
 }
 
 const IconComponent: React.FC<IconComponentProps> = ({
@@ -15,6 +16,7 @@ const IconComponent: React.FC<IconComponentProps> = ({
   height = 10,
   width = 10,
   color = 'text',
+  onPress,
 }) => {
   const {colors} = useAppTheme();
   const IconImage = icons[Icon];
@@ -23,6 +25,7 @@ const IconComponent: React.FC<IconComponentProps> = ({
       color={colors[color]}
       height={scale(height)}
       width={scale(width)}
+      onPress={onPress}
     />
   );
 };
