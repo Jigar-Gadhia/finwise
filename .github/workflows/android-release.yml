@@ -3,10 +3,13 @@ name: Generate Release APK
 on:
   workflow_dispatch:
     inputs:
+      tag:
+        description: "Release Tag (example: v1.2.0 or v1.2.0-beta)"
+        required: true
       prerelease:
         description: "Mark as Pre-release?"
         required: true
-        default: "false"
+        default: "true"
         type: choice
         options:
           - "false"
