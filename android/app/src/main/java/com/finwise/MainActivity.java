@@ -20,7 +20,7 @@ public class MainActivity extends ReactActivity {
   protected void onCreate(Bundle savedInstanceState) {
     RNBootSplash.init(this, R.style.BootTheme);
     super.onCreate(savedInstanceState);
-    WindowCompat.setDecorFitsSystemWindows(window, false);
+    WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
   }
 
   @Override
