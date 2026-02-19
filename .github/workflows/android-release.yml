@@ -2,6 +2,15 @@ name: Generate Release APK
 
 on:
   workflow_dispatch:
+    inputs:
+      prerelease:
+        description: "Mark as Pre-release?"
+        required: true
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
   push:
     tags:
       - 'v*'
@@ -107,8 +116,9 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.ref_name }}
-          name: Release ${{ github.ref_name }}
-          body: ${{ github.event.head_commit.message }}
+          name: 🚀 Release ${{ github.ref_name }}
+          generate_release_notes: true
+          prerelease: ${{ github.event.inputs.prerelease == 'true' }}
           files: android/app/build/outputs/apk/release/app-release.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
