@@ -63,7 +63,7 @@ jobs:
       - name: 📦 Cache Android SDK
         uses: actions/cache@v4
         with:
-          path: ~/Android/Sdk
+          path: /usr/local/lib/android/sdk
           key: android-sdk-${{ runner.os }}
 
       # ✅ Cache Gradle 🔥🔥🔥
@@ -109,16 +109,22 @@ jobs:
             -PKEY_ALIAS=release-key \
             -PKEY_PASSWORD=android
 
-      # ----------------------------
-      # Create GitHub Release
-      # ----------------------------
+      # ✅ Rename APK with Version Name
+      - name: 📦 Rename APK
+        run: |
+          APK_PATH=android/app/build/outputs/apk/release/app-release.apk
+          NEW_NAME=android/app/build/outputs/apk/release/finwise-${{ github.ref_name }}.apk
+
+          mv $APK_PATH $NEW_NAME
+
+      # ✅ Create GitHub Release
       - name: 🚀 Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.ref_name }}
-          name: 🚀 Release ${{ github.ref_name }}
+          name: 🚀 FinWise ${{ github.ref_name }}
           generate_release_notes: true
-          prerelease: ${{ github.event.inputs.prerelease == 'true' }}
-          files: android/app/build/outputs/apk/release/app-release.apk
+          prerelease: ${{ contains(github.ref_name, 'beta') }}
+          files: android/app/build/outputs/apk/release/finwise-${{ github.ref_name }}.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
