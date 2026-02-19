@@ -1,4 +1,5 @@
-export const filters = [
+export type filterTypes = 'daily' | 'weekly' | 'monthly' | 'yearly';
+export const filters: {name: filterTypes}[] = [
   {
     name: 'daily',
   },
@@ -12,5 +13,3 @@ export const filters = [
     name: 'yearly',
   },
 ];
-
-export type filterTypes = 'daily' | 'weekly' | 'monthly' | 'yearly';

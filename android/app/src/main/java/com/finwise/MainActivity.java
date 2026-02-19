@@ -7,6 +7,7 @@ import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
 import com.facebook.react.defaults.DefaultReactActivityDelegate;
 import androidx.core.content.ContextCompat;
 import com.zoontek.rnbootsplash.RNBootSplash;
+import androidx.core.view.WindowCompat;
 
 public class MainActivity extends ReactActivity {
 
@@ -19,6 +20,7 @@ public class MainActivity extends ReactActivity {
   protected void onCreate(Bundle savedInstanceState) {
     RNBootSplash.init(this, R.style.BootTheme);
     super.onCreate(savedInstanceState);
+    WindowCompat.setDecorFitsSystemWindows(window, false)
   }
 
   @Override

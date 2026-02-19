@@ -4,7 +4,7 @@ export const en = {
     percentage: '{{value}}%',
     positiveAmount: '{{amount}}',
     negativeAmount: '-{{amount}}',
-    chartHeader: '{{duration}} Expenses',
+    chartHeader: 'income & Expenses',
     expense: 'expense',
     income: 'income',
     myTargets: 'my targets',

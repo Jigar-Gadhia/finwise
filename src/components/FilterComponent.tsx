@@ -1,13 +1,16 @@
 import React from 'react';
-import {View, StyleSheet, TouchableOpacity} from 'react-native';
+import {StyleSheet, TouchableOpacity} from 'react-native';
 import {scale} from 'react-native-size-matters';
 import {useAppTheme} from '../theme/ThemeContext';
 import {filters, filterTypes} from '../utils/filterData';
 import TextComponent from './TextComponent';
+import {useIsFocused} from '@react-navigation/native';
+import Animated from 'react-native-reanimated';
+import {useFadeAnimation} from '../hooks/useFadeAnimation';
 
 interface FilterComponentProps {
-  currentFilter?: filterTypes;
-  onFilterChange?: (filter: string) => void;
+  currentFilter?: filterTypes | undefined;
+  onFilterChange?: (filter: filterTypes) => void;
   paddingRequired?: boolean;
   yearlyEnabled?: boolean;
 }
@@ -19,13 +22,16 @@ const FilterComponent: React.FC<FilterComponentProps> = ({
   yearlyEnabled = false,
 }) => {
   const {colors} = useAppTheme();
+  const focused = useIsFocused();
+  const animatedStyle = useFadeAnimation(focused);
   return (
-    <View
+    <Animated.View
       style={[
+        animatedStyle,
         styles.container,
         {
           backgroundColor: colors.tab,
-          paddingHorizontal: paddingRequired ? scale(12) : 0,
+          paddingHorizontal: paddingRequired ? scale(12) : scale(5),
         },
       ]}>
       {filters
@@ -51,7 +57,7 @@ const FilterComponent: React.FC<FilterComponentProps> = ({
             </TouchableOpacity>
           );
         })}
-    </View>
+    </Animated.View>
   );
 };
 

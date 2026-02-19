@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     height: verticalScale(95),
     width: '100%',
-    bottom: 0,
+    bottom: scale(-1),
     borderTopLeftRadius: scale(70),
     borderTopRightRadius: scale(70),
     paddingHorizontal: scale(30),

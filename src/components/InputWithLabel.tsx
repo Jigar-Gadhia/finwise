@@ -71,6 +71,8 @@ const styles = StyleSheet.create({
   },
   inputStyle: {
     flex: 1,
+    color: LightColors.text,
+    fontSize: fontScale(14),
   },
 });
 

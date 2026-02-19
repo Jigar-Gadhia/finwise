@@ -1,5 +1,5 @@
 import {StyleSheet, TouchableOpacity} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import Container from '../../components/Container';
 import {useAppTheme} from '../../theme/ThemeContext';
 import DashboardCounts from '../../components/DashboardCounts';
@@ -10,12 +10,20 @@ import FilterComponent from '../../components/FilterComponent';
 import TransactionComponent from '../../components/TransactionComponent';
 import {screenNames} from '../../utils/screenNames';
 import {navigate} from '../../utils/navigationService';
+import {filters, filterTypes} from '../../utils/filterData';
 
 const HomeScreen = () => {
   const {colors} = useAppTheme();
+  const [currentFilter, setCurrentFilter] = useState<filterTypes | undefined>(
+    filters[0].name,
+  );
 
   const onPressExpenseCard = () => {
     navigate(screenNames.QuicklyAnalysisScreen);
+  };
+
+  const onChangeFilter = (filter: filterTypes) => {
+    setCurrentFilter(filter);
   };
 
   return (
@@ -29,8 +37,12 @@ const HomeScreen = () => {
           style={[styles.subCard, {backgroundColor: colors.caribbeanGreen}]}>
           <ExpenseComponent iconColor="staticBlack" textColor="staticBlack" />
         </TouchableOpacity>
-        <FilterComponent yearlyEnabled={false} />
-        <TransactionComponent />
+        <FilterComponent
+          currentFilter={currentFilter}
+          onFilterChange={onChangeFilter}
+          yearlyEnabled={false}
+        />
+        <TransactionComponent currentFilter={currentFilter} />
       </CardComponent>
     </Container>
   );

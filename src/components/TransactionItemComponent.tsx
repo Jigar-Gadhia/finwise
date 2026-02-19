@@ -11,6 +11,8 @@ import {priceFormat} from '../utils/utils';
 import {t} from '../localization/t';
 import {strings} from '../localization';
 import {useAppTheme} from '../theme/ThemeContext';
+import {useFadeAnimation} from '../hooks/useFadeAnimation';
+import Animated from 'react-native-reanimated';
 
 interface TransactionItemComponentProps {
   item: Transaction;
@@ -22,8 +24,9 @@ const TransactionItemComponent: React.FC<TransactionItemComponentProps> = ({
   const {colors} = useAppTheme();
   const {category, type, amount, frequency, occurredAt} = item;
   const {label, icon} = category;
+  const animatedStyle = useFadeAnimation(!!item);
   return (
-    <View style={styles.container}>
+    <Animated.View style={[styles.container, animatedStyle]}>
       <View
         style={[
           styles.iconContainer,
@@ -62,7 +65,7 @@ const TransactionItemComponent: React.FC<TransactionItemComponentProps> = ({
               })}
         </TextComponent>
       </View>
-    </View>
+    </Animated.View>
   );
 };
 

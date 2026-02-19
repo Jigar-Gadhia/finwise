@@ -37,9 +37,12 @@ const ScreenHeader: React.FC<ScreenHeaderProps> = ({
         ) : (
           <React.Fragment>
             <TouchableOpacity onPress={goBack}>
-              <IconComponent Icon="backArrow" height={15} width={15} />
+              <IconComponent Icon="backArrow" height={18} width={18} />
             </TouchableOpacity>
-            <TextComponent variant="title" color="screenTitle">
+            <TextComponent
+              variant="title"
+              color="screenTitle"
+              disableLineHeight>
               {name}
             </TextComponent>
           </React.Fragment>

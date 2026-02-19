@@ -1,5 +1,4 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
 import ViewWithGap from './ViewWithGap';
 import IconComponent from './IconComponent';
 
@@ -31,11 +30,5 @@ const SocialMediaButtons: React.FC<SocialMediaButtonsProps> = ({
     </ViewWithGap>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default SocialMediaButtons;

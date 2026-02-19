@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, StyleSheet} from 'react-native';
 import Container from '../../components/Container';
 import {t} from '../../localization/t';
@@ -12,9 +12,18 @@ import TextComponent from '../../components/TextComponent';
 import ExpenseIncomeComponent from '../../components/ExpenseIncomeComponent';
 import {useAppTheme} from '../../theme/ThemeContext';
 import CircularProgress from '../../components/CircularProgress';
+import {filters, filterTypes} from '../../utils/filterData';
 
 const AnalysisScreen: React.FC = () => {
   const {colors} = useAppTheme();
+  const [currentFilter, setCurrentFilter] = useState<filterTypes | undefined>(
+    filters[0].name,
+  );
+
+  const onChangeFilter = (filter: filterTypes) => {
+    setCurrentFilter(filter);
+  };
+
   return (
     <Container screenName={t(strings.screenHeaders.analysis)}>
       <DashboardCounts />
@@ -24,9 +33,10 @@ const AnalysisScreen: React.FC = () => {
         <FilterComponent
           paddingRequired={false}
           yearlyEnabled
-          currentFilter="daily"
+          currentFilter={currentFilter}
+          onFilterChange={onChangeFilter}
         />
-        <ExpenseBarChart />
+        <ExpenseBarChart filter={currentFilter} />
         <View style={styles.expenseContainer}>
           <ExpenseIncomeComponent
             icon="arrowUp"

@@ -1,15 +1,13 @@
 import {StatusBar, StyleSheet, ViewStyle} from 'react-native';
-import React, {ReactNode, useEffect} from 'react';
+import React, {ReactNode} from 'react';
 import {useIsFocused, useTheme} from '@react-navigation/native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import ScreenHeader from './ScreenHeader';
 import {t} from '../localization/t';
 import {strings} from '../localization';
-import Animated, {
-  useSharedValue,
-  useAnimatedStyle,
-  withTiming,
-} from 'react-native-reanimated';
+import Animated from 'react-native-reanimated';
+import {useFadeAnimation} from '../hooks/useFadeAnimation';
+import {useScaleAnimation} from '../hooks/useScaleAnimation';
 
 type ContainerProps = {
   children: ReactNode;
@@ -33,23 +31,7 @@ const Container: React.FC<ContainerProps> = ({
   const {colors, dark} = useTheme();
   const focused = useIsFocused();
 
-  const scale = useSharedValue(0.95);
-  const opacity = useSharedValue(0);
-
-  useEffect(() => {
-    if (focused) {
-      scale.value = withTiming(1, {duration: 250});
-      opacity.value = withTiming(1, {duration: 200});
-    } else {
-      scale.value = withTiming(0.95, {duration: 150});
-      opacity.value = withTiming(0);
-    }
-  }, [focused, opacity, scale]);
-
-  const animatedStyle = useAnimatedStyle(() => ({
-    transform: [{scale: scale.value}],
-    opacity: opacity.value,
-  }));
+  const animatedStyle = [useFadeAnimation(focused), useScaleAnimation(focused)];
 
   return (
     <Animated.View style={[styles.container, animatedStyle]}>

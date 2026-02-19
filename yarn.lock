@@ -4273,11 +4273,6 @@ getenv@^1.0.0:
   resolved "https://registry.yarnpkg.com/getenv/-/getenv-1.0.0.tgz#874f2e7544fbca53c7a4738f37de8605c3fcfc31"
   integrity sha512-7yetJWqbS9sbn0vIfliPsFgoXMKn/YMF+Wuiog97x+urnSRRRZ7xB+uVkwGKzRgq9CDFfMQnE9ruL5DHv9c6Xg==
 
-gifted-charts-core@0.1.78:
-  version "0.1.78"
-  resolved "https://registry.yarnpkg.com/gifted-charts-core/-/gifted-charts-core-0.1.78.tgz#6c8ec1476a36c1b83c2f5ca323b38217c092658a"
-  integrity sha512-IR8DXaNHbuV76cfO4ZpDUFZJ1+q4SJXoCFtKPJ5CIZnYZRmWGAdKAhUqlpKwXUzTSETza1GKDbJli2CVCXOKeg==
-
 github-from-package@0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/github-from-package/-/github-from-package-0.0.0.tgz#97fb5d96bfde8973313f20e8288ef9a167fa64ce"
@@ -6922,13 +6917,6 @@ react-native-bootsplash@6.3.2:
     sharp "^0.32.6"
     ts-dedent "^2.2.0"
     xml-formatter "^3.6.3"
-
-react-native-gifted-charts@^1.4.70:
-  version "1.4.74"
-  resolved "https://registry.yarnpkg.com/react-native-gifted-charts/-/react-native-gifted-charts-1.4.74.tgz#19a256e088e1665a5e8c7b09a861b54888bc5396"
-  integrity sha512-HaTH/sIj7NBR/yOyQkzLjuikwQQW9srUXHpmJ4FARWOp+qUGX5KYyyc1cnxQQyLio+P8Sw8e6ME/LJsvVqmFQA==
-  dependencies:
-    gifted-charts-core "0.1.78"
 
 react-native-is-edge-to-edge@^1.1.6:
   version "1.2.1"

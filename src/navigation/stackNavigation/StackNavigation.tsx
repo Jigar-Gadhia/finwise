@@ -11,8 +11,6 @@ import {AppThemeProvider, useAppTheme} from '../../theme/ThemeContext';
 import {navigationRef} from '../../utils/navigationService';
 import BootSplash from 'react-native-bootsplash';
 import OnBoardingScreen from '../../screens/onboarding/OnBoardingScreen';
-import {useSelector} from 'react-redux';
-import {ThemeState} from '../../store/slices/themeSlice';
 import WelcomeScreen from '../../screens/welcome/WelcomeScreen';
 import LoginScreen from '../../screens/login/LoginScreen';
 import SignupScreen from '../../screens/signup/SignupScreen';
@@ -25,9 +23,6 @@ const Stack = createNativeStackNavigator();
 
 const AppNavigator = () => {
   const {colors, mode} = useAppTheme();
-  const {isFirstLaunch} = useSelector(
-    (state: {theme: ThemeState}) => state.theme,
-  );
 
   const navTheme = {
     ...(mode === 'dark' ? DarkTheme : DefaultTheme),
