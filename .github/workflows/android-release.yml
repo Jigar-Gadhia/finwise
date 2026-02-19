@@ -3,8 +3,8 @@ name: Generate Release APK
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
+    tags:
+      - 'v*'
 
 jobs:
   build:
@@ -97,9 +97,15 @@ jobs:
             -PKEY_ALIAS=release-key \
             -PKEY_PASSWORD=android
 
-      # ✅ Upload APK
-      - name: 📤 Upload APK
-        uses: actions/upload-artifact@v4
+      # ----------------------------
+      # Create GitHub Release
+      # ----------------------------
+      - name: 🚀 Create GitHub Release
+        uses: softprops/action-gh-release@v2
         with:
-          name: release-apk
-          path: android/app/build/outputs/apk/release/app-release.apk
+          tag_name: ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
+          body: ${{ github.event.head_commit.message }}
+          files: android/app/build/outputs/apk/release/app-release.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
