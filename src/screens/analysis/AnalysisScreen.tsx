@@ -41,7 +41,7 @@ const AnalysisScreen: React.FC = () => {
           <ExpenseIncomeComponent
             icon="arrowUp"
             amount={4120}
-            text={t(strings.common.expense)}
+            text={t(strings.common.income)}
           />
           <ExpenseIncomeComponent
             icon="arrowDown"

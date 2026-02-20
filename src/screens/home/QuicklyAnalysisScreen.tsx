@@ -17,6 +17,7 @@ const QuicklyAnalysisScreen: React.FC = () => {
           savingsTextColor="text"
           iconColor="divider"
           textColor="caribbeanGreen"
+          negativePrice
         />
       </View>
       <CardComponent

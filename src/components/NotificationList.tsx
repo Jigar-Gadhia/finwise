@@ -1,5 +1,5 @@
-import React from 'react';
-import {View, StyleSheet, SectionList} from 'react-native';
+import React, {memo} from 'react';
+import {View, StyleSheet, SectionList, Platform} from 'react-native';
 import CardComponent from './CardComponent';
 import {notifications} from '../utils/notificationsData';
 import NotificationItemComponent from './NotificationItemComponent';
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: scale(25),
     paddingHorizontal: scale(25),
-    paddingBottom: scale(110),
+    paddingBottom: scale(Platform.OS === 'android' ? 110 : 0),
   },
   sectionHeaderStyle: {
     marginBottom: scale(10),
@@ -62,4 +62,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default NotificationList;
+export default memo(NotificationList);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {View, StyleSheet} from 'react-native';
 import {Transaction} from '../utils/transactionData';
 import {scale} from 'react-native-size-matters';
@@ -11,8 +11,6 @@ import {priceFormat} from '../utils/utils';
 import {t} from '../localization/t';
 import {strings} from '../localization';
 import {useAppTheme} from '../theme/ThemeContext';
-import {useFadeAnimation} from '../hooks/useFadeAnimation';
-import Animated from 'react-native-reanimated';
 
 interface TransactionItemComponentProps {
   item: Transaction;
@@ -24,9 +22,8 @@ const TransactionItemComponent: React.FC<TransactionItemComponentProps> = ({
   const {colors} = useAppTheme();
   const {category, type, amount, frequency, occurredAt} = item;
   const {label, icon} = category;
-  const animatedStyle = useFadeAnimation(!!item);
   return (
-    <Animated.View style={[styles.container, animatedStyle]}>
+    <View style={styles.container}>
       <View
         style={[
           styles.iconContainer,
@@ -65,7 +62,7 @@ const TransactionItemComponent: React.FC<TransactionItemComponentProps> = ({
               })}
         </TextComponent>
       </View>
-    </Animated.View>
+    </View>
   );
 };
 
@@ -99,4 +96,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TransactionItemComponent;
+export default memo(TransactionItemComponent);

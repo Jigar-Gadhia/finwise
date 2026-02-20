@@ -15,12 +15,14 @@ interface ExpenseComponentProps {
   textColor: keyof ReturnType<typeof useAppTheme>['colors'];
   iconColor: keyof ReturnType<typeof useAppTheme>['colors'];
   savingsTextColor?: keyof ReturnType<typeof useAppTheme>['colors'];
+  negativePrice?: boolean;
 }
 
 const ExpenseComponent: React.FC<ExpenseComponentProps> = ({
   textColor = 'text',
   iconColor = 'amountPositive',
   savingsTextColor = 'staticBlack',
+  negativePrice = false,
 }) => {
   return (
     <View style={styles.rowcontainer}>
@@ -62,7 +64,7 @@ const ExpenseComponent: React.FC<ExpenseComponentProps> = ({
           Icon={'food'}
           text={t(strings.cards.foodLastWeek)}
           price={100}
-          negativePrice
+          negativePrice={negativePrice}
           color={textColor}
           iconColor={iconColor}
         />

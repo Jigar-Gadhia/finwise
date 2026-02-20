@@ -1,9 +1,10 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {transactionData} from '../utils/transactionData';
 import TransactionItemComponent from './TransactionItemComponent';
 import {scale} from 'react-native-size-matters';
 import {filterTypes} from '../utils/filterData';
+import Animated, {FadeIn} from 'react-native-reanimated';
 
 interface TransactionComponentProps {
   currentFilter?: filterTypes;
@@ -13,13 +14,16 @@ const TransactionComponent: React.FC<TransactionComponentProps> = ({
   currentFilter = 'daily',
 }) => {
   return (
-    <View style={styles.container}>
+    <Animated.View
+      entering={FadeIn}
+      key={`${currentFilter}`}
+      style={styles.container}>
       {transactionData
         .filter(item => item.frequency === currentFilter)
         .map(item => {
           return <TransactionItemComponent item={item} key={item.id} />;
         })}
-    </View>
+    </Animated.View>
   );
 };
 

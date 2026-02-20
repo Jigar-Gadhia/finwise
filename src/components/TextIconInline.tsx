@@ -11,6 +11,7 @@ interface TextIconInlineProps {
   Icon: IconName;
   style?: ViewStyle;
   textStyle?: TextStyle;
+  iconEnabled?: boolean;
 }
 
 const TextIconInline: React.FC<TextIconInlineProps> = ({
@@ -18,15 +19,18 @@ const TextIconInline: React.FC<TextIconInlineProps> = ({
   Icon,
   style,
   textStyle,
+  iconEnabled = true,
 }) => {
   return (
     <View style={[styles.container, style]}>
-      <IconComponent
-        Icon={Icon}
-        height={scale(9)}
-        width={scale(9)}
-        color="text"
-      />
+      {iconEnabled && (
+        <IconComponent
+          Icon={Icon}
+          height={scale(9)}
+          width={scale(9)}
+          color="text"
+        />
+      )}
       <TextComponent disableLineHeight style={[styles.text, textStyle]}>
         {text}
       </TextComponent>

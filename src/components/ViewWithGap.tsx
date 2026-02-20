@@ -30,7 +30,6 @@ const ViewWithGap: React.FC<ViewWithGapProps> = ({
   return (
     <View
       style={[
-        styles.container,
         {
           gap: scale(gap),
           marginTop: scale(marginTop),
@@ -46,9 +45,6 @@ const ViewWithGap: React.FC<ViewWithGapProps> = ({
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   rowStyle: {
     flexDirection: 'row',
     alignItems: 'center',

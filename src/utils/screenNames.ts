@@ -5,6 +5,7 @@ export const screenNames = {
   Analysis: 'Analysis',
   AnalysisScreen: 'AnalysisScreen',
   Transactions: 'Transactions',
+  TransactionsScreen: 'TransactionsScreen',
   Profile: 'Profile',
   Tab: 'Tab',
   QuicklyAnalysisScreen: 'QuicklyAnalysis',

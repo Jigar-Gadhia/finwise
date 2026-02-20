@@ -6,22 +6,22 @@ import QuicklyAnalysisScreen from './QuicklyAnalysisScreen';
 import NotificationsScreen from '../commonScreen.tsx/NotificationsScreen';
 
 const Home = () => {
-  const Screen = createNativeStackNavigator();
+  const Stack = createNativeStackNavigator();
 
   return (
-    <Screen.Navigator
+    <Stack.Navigator
       initialRouteName={screenNames.HomeScreen}
       screenOptions={{headerShown: false}}>
-      <Screen.Screen name={screenNames.HomeScreen} component={HomeScreen} />
-      <Screen.Screen
+      <Stack.Screen name={screenNames.HomeScreen} component={HomeScreen} />
+      <Stack.Screen
         name={screenNames.QuicklyAnalysisScreen}
         component={QuicklyAnalysisScreen}
       />
-      <Screen.Screen
+      <Stack.Screen
         name={screenNames.NotificationsScreen}
         component={NotificationsScreen}
       />
-    </Screen.Navigator>
+    </Stack.Navigator>
   );
 };
 
