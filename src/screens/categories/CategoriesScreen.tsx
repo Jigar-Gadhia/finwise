@@ -48,19 +48,6 @@ const CategoriesScreen: React.FC = () => {
   };
   return (
     <Fragment>
-      <Container screenName={screenNames.Categories}>
-        <DashboardCounts />
-        <CardComponent style={styles.cardStyle} scroll={false}>
-          <FlatList
-            data={categoriesData}
-            contentContainerStyle={styles.contentStyle}
-            columnWrapperStyle={styles.columnWrapperStyle}
-            numColumns={3}
-            renderItem={({item}) => renderItem({item, onPress: onPressItem})}
-            contentInset={{bottom: scale(120)}}
-          />
-        </CardComponent>
-      </Container>
       <AppModal visible={showModal} onClose={onPressMore}>
         <View
           style={[
@@ -89,6 +76,19 @@ const CategoriesScreen: React.FC = () => {
           />
         </View>
       </AppModal>
+      <Container screenName={screenNames.Categories}>
+        <DashboardCounts />
+        <CardComponent style={styles.cardStyle} scroll={false}>
+          <FlatList
+            data={categoriesData}
+            contentContainerStyle={styles.contentStyle}
+            columnWrapperStyle={styles.columnWrapperStyle}
+            numColumns={3}
+            renderItem={({item}) => renderItem({item, onPress: onPressItem})}
+            contentInset={{bottom: scale(120)}}
+          />
+        </CardComponent>
+      </Container>
     </Fragment>
   );
 };
