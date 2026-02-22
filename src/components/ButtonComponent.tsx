@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, TouchableOpacity, ViewStyle} from 'react-native';
+import {StyleSheet, TextStyle, TouchableOpacity, ViewStyle} from 'react-native';
 import {LightColors} from '../theme/colors';
 import TextComponent from './TextComponent';
 import {scale} from 'react-native-size-matters';
@@ -12,6 +12,7 @@ interface ButtonComponentProps {
   bgColor?: keyof typeof LightColors;
   buttonStyle?: ViewStyle;
   fullWidth?: boolean;
+  titleStyle?: TextStyle;
 }
 
 const ButtonComponent: React.FC<ButtonComponentProps> = ({
@@ -19,6 +20,7 @@ const ButtonComponent: React.FC<ButtonComponentProps> = ({
   title,
   bgColor = 'caribbeanGreen',
   buttonStyle,
+  titleStyle,
   fullWidth = false,
 }) => {
   const {colors} = useAppTheme();
@@ -37,7 +39,7 @@ const ButtonComponent: React.FC<ButtonComponentProps> = ({
       <TextComponent
         align="center"
         variant="subtitle"
-        style={styles.textStyle}
+        style={[styles.textStyle, titleStyle]}
         disableLineHeight
         color="staticBlack">
         {title}

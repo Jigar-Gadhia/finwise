@@ -40,6 +40,8 @@ import Eye from '../assets/icons/form/eye.svg';
 import FB from '../assets/icons/fb.svg';
 import Google from '../assets/icons/google.svg';
 import Fingerprint from '../assets/icons/fingerprint.svg';
+import More from '../assets/icons/categories/more.svg';
+import DrowDown from '../assets/icons/form/dropdown.svg';
 
 export const icons = {
   home: Home,
@@ -84,4 +86,6 @@ export const icons = {
   fb: FB,
   google: Google,
   fingerprint: Fingerprint,
+  more: More,
+  dropDown: DrowDown,
 };

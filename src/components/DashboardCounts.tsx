@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {View, StyleSheet} from 'react-native';
 import TextIconInline from './TextIconInline';
 import {t} from '../localization/t';
@@ -14,12 +14,12 @@ const DashboardCounts: React.FC = () => {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.container}>
-        <BalanceComponent amount={priceFormat.format(7723)} />
+        <BalanceComponent amount={priceFormat().format(7723)} />
         <View style={[styles.saperator, {backgroundColor: colors.divider}]} />
         <BalanceComponent
           expense
           amount={t(strings.common.negativeAmount, {
-            amount: priceFormat.format(1187),
+            amount: priceFormat().format(1187),
           })}
         />
       </View>
@@ -65,4 +65,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default DashboardCounts;
+export default memo(DashboardCounts);

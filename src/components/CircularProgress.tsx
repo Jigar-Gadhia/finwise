@@ -11,7 +11,7 @@ interface CircularProgressProps {
   size: number;
   strokeWidth: number;
   progressPercent: number;
-  text: string;
+  text?: string;
   bgColor?: keyof ReturnType<typeof useAppTheme>['colors'];
   pgColor?: keyof ReturnType<typeof useAppTheme>['colors'];
   textColor?: keyof ReturnType<typeof useAppTheme>['colors'];

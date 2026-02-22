@@ -45,9 +45,9 @@ const PriceWithIcon: React.FC<PriceWithIconProps> = ({
           ]}>
           {negativePrice
             ? t(strings.common.negativeAmount, {
-                amount: priceFormat.format(price),
+                amount: priceFormat().format(price),
               })
-            : priceFormat.format(price)}
+            : priceFormat().format(price)}
         </TextComponent>
       </View>
     </View>

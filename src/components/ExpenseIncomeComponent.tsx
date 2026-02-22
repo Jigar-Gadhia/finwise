@@ -72,7 +72,7 @@ const ExpenseIncomeComponent: React.FC<ExpenseIncomeComponentProps> = ({
             : 'text'
         }
         variant="title">
-        {priceFormat.format(amount)}
+        {priceFormat().format(amount)}
       </TextComponent>
     </TouchableOpacity>
   );

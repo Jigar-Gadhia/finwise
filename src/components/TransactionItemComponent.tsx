@@ -56,9 +56,9 @@ const TransactionItemComponent: React.FC<TransactionItemComponentProps> = ({
           variant="subtitle"
           color={type === 'income' ? 'text' : 'vividBlue'}>
           {type === 'income'
-            ? priceFormat.format(amount)
+            ? priceFormat().format(amount)
             : t(strings.common.negativeAmount, {
-                amount: priceFormat.format(amount),
+                amount: priceFormat().format(amount),
               })}
         </TextComponent>
       </View>

@@ -12,6 +12,7 @@ interface TextIconInlineProps {
   style?: ViewStyle;
   textStyle?: TextStyle;
   iconEnabled?: boolean;
+  flip?: boolean;
 }
 
 const TextIconInline: React.FC<TextIconInlineProps> = ({
@@ -20,6 +21,7 @@ const TextIconInline: React.FC<TextIconInlineProps> = ({
   style,
   textStyle,
   iconEnabled = true,
+  flip = false,
 }) => {
   return (
     <View style={[styles.container, style]}>
@@ -29,9 +31,13 @@ const TextIconInline: React.FC<TextIconInlineProps> = ({
           height={scale(9)}
           width={scale(9)}
           color="text"
+          style={flip && styles.flipStyle}
         />
       )}
-      <TextComponent disableLineHeight style={[styles.text, textStyle]}>
+      <TextComponent
+        variant="subtitle"
+        disableLineHeight
+        style={[styles.text, textStyle]}>
         {text}
       </TextComponent>
     </View>
@@ -49,6 +55,9 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: fontScale(12),
+  },
+  flipStyle: {
+    transform: [{rotate: '-90deg'}],
   },
 });
 

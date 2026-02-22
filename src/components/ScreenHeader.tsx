@@ -42,7 +42,8 @@ const ScreenHeader: React.FC<ScreenHeaderProps> = ({
             <TextComponent
               variant="title"
               color="screenTitle"
-              disableLineHeight>
+              disableLineHeight
+              capitalised>
               {name}
             </TextComponent>
           </React.Fragment>

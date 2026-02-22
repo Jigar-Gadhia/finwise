@@ -7,24 +7,38 @@ import {t} from '../localization/t';
 import {strings} from '../localization';
 import {priceFormat} from '../utils/utils';
 import {useAppTheme} from '../theme/ThemeContext';
+import {LightColors} from '../theme/colors';
 
-const ProgressBar: React.FC = () => {
+interface ProgressBarProps {
+  trackColor?: keyof typeof LightColors;
+  fillColor?: keyof typeof LightColors;
+  textColor?: keyof typeof LightColors;
+  progressValue?: number;
+  total?: number;
+}
+
+const ProgressBar: React.FC<ProgressBarProps> = ({
+  trackColor = 'progressTrack',
+  fillColor = 'amountPositive',
+  textColor = 'staticWhite',
+  progressValue = 30,
+  total = 20000,
+}) => {
   const {colors} = useAppTheme();
   return (
-    <View style={[styles.container, {backgroundColor: colors.progressTrack}]}>
+    <View style={[styles.container, {backgroundColor: colors[trackColor]}]}>
       <TextComponent
         weight="regular"
         style={styles.percentageStyle}
-        color="staticWhite">
-        {t(strings.common.percentage, {value: 30})}
+        color={textColor}>
+        {t(strings.common.percentage, {value: progressValue})}
       </TextComponent>
-      <View
-        style={[styles.progressBar, {backgroundColor: colors.amountPositive}]}>
+      <View style={[styles.progressBar, {backgroundColor: colors[fillColor]}]}>
         <TextComponent
           disableLineHeight
           weight="medium"
           style={[styles.progressPriceStyle, {color: colors.amountOnProgress}]}>
-          {priceFormat.format(20000)}
+          {priceFormat().format(total)}
         </TextComponent>
       </View>
     </View>

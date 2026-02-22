@@ -13,6 +13,8 @@ export const LightColors = {
   amountOnProgress: '#052224',
   progressTrack: '#031314',
   progressFill: '#00D09E',
+  progressInvertTrack: '#0E3E3E',
+  progressInvertFill: '#00D09E',
   staticBlack: '#000000',
   screenTitle: '#093030',
   darkGreen: '#0E3E3E',
@@ -21,6 +23,7 @@ export const LightColors = {
   border: '#000000',
   placeholder: '#1B6B6B',
   title: '#093030',
+  transperent: 'rgba(0,0,0,0.5)',
 };
 
 export const DarkColors = {
@@ -36,4 +39,6 @@ export const DarkColors = {
   dot: '#DFF7E2',
   border: '#DFF7E2',
   title: '#00D09E',
+  progressInvertTrack: '#00D09E',
+  progressInvertFill: '#DFF7E2',
 };

@@ -34,7 +34,10 @@ const TransactionsScreen = () => {
   return (
     <Container screenName={screenNames.Transactions}>
       <View style={styles.container}>
-        <BalanceComponent amount={priceFormat.format(7723)} backgoundEnabled />
+        <BalanceComponent
+          amount={priceFormat().format(7723)}
+          backgoundEnabled
+        />
         <ViewWithGap row gap={15}>
           <ExpenseIncomeComponent
             icon="arrowUp"

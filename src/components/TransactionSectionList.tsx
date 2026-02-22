@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: scale(25),
     paddingHorizontal: scale(25),
-    paddingBottom: scale(Platform.OS === 'android' ? 110 : 0),
+    paddingBottom: Platform.select({android: scale(110), ios: 0}),
     gap: scale(20),
   },
 });

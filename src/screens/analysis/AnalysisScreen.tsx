@@ -11,8 +11,8 @@ import ExpenseBarChart from '../../components/ExpenseBarChart';
 import TextComponent from '../../components/TextComponent';
 import ExpenseIncomeComponent from '../../components/ExpenseIncomeComponent';
 import {useAppTheme} from '../../theme/ThemeContext';
-import CircularProgress from '../../components/CircularProgress';
 import {filters, filterTypes} from '../../utils/filterData';
+import CircularProgressWithText from '../../components/CircularProgressWithText';
 
 const AnalysisScreen: React.FC = () => {
   const {colors} = useAppTheme();
@@ -54,38 +54,8 @@ const AnalysisScreen: React.FC = () => {
             {t(strings.common.myTargets)}
           </TextComponent>
           <View style={styles.progressContainer}>
-            <View
-              style={[styles.progressBox, {backgroundColor: colors.lightBlue}]}>
-              <CircularProgress
-                progressPercent={30}
-                size={100}
-                strokeWidth={3.25}
-                text={t(strings.common.percentage, {value: 30})}
-                bgColor={'amountPositive'}
-                pgColor={'oceanBlue'}
-                textColor={'text'}
-                textSize={20}
-              />
-              <TextComponent variant="subtitle" color="text">
-                Travel
-              </TextComponent>
-            </View>
-            <View
-              style={[styles.progressBox, {backgroundColor: colors.lightBlue}]}>
-              <CircularProgress
-                progressPercent={50}
-                size={100}
-                strokeWidth={3.25}
-                text={t(strings.common.percentage, {value: 50})}
-                bgColor={'amountPositive'}
-                pgColor={'oceanBlue'}
-                textColor={'text'}
-                textSize={20}
-              />
-              <TextComponent variant="subtitle" disableLineHeight color="text">
-                Car
-              </TextComponent>
-            </View>
+            <CircularProgressWithText progressText={30} label="Travel" />
+            <CircularProgressWithText progressText={50} label="Car" />
           </View>
         </View>
       </CardComponent>
