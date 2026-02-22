@@ -5,21 +5,11 @@ import {categoriesType} from '../utils/categoriesData';
 import CategoryTransactionItem from './CategoryTransactionItem';
 import TextComponent from './TextComponent';
 import {scale} from 'react-native-size-matters';
-import ButtonComponent from './ButtonComponent';
-import {t} from '../localization/t';
-import {strings} from '../localization';
-import {fontScale} from '../theme/fontScale';
-import {fonts} from '../theme/fonts';
 
 interface Transaction {
   id: string;
   amount: number;
   timestamp: string;
-}
-
-interface SectionData {
-  title: string;
-  data: Transaction[];
 }
 
 const getLastTwoMonths = () => {
@@ -56,12 +46,11 @@ export const generateTransactions = (
 
 interface CategoryTransactionSectionListProps {
   transaction: categoriesType;
-  onPressAdd: () => void;
 }
 
 const CategoryTransactionSectionList: React.FC<
   CategoryTransactionSectionListProps
-> = ({transaction, onPressAdd}) => {
+> = ({transaction}) => {
   const sections = useMemo(() => {
     const months = getLastTwoMonths();
 
@@ -97,13 +86,6 @@ const CategoryTransactionSectionList: React.FC<
         windowSize={10}
         removeClippedSubviews
       />
-
-      <ButtonComponent
-        title={t(strings.common.addExpense)}
-        buttonStyle={styles.buttonStyle}
-        onPress={onPressAdd}
-        titleStyle={styles.buttonTitleStyle}
-      />
     </View>
   );
 };
@@ -114,17 +96,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: scale(25),
     paddingBottom: Platform.select({android: scale(110), ios: 0}),
     gap: scale(20),
-  },
-  buttonStyle: {
-    position: 'absolute',
-    bottom: scale(-15),
-    alignSelf: 'center',
-    width: scale(150),
-    paddingVertical: scale(7),
-  },
-  buttonTitleStyle: {
-    fontSize: fontScale(14),
-    fontFamily: fonts.regular,
   },
 });
 

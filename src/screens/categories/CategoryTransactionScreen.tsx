@@ -12,6 +12,11 @@ import {screenNames} from '../../utils/screenNames';
 import {categoriesType, savingsData} from '../../utils/categoriesData';
 import CategoryItem from '../../components/CategoryItem';
 import {setSaving} from '../../store/slices/savingSlice';
+import ButtonComponent from '../../components/ButtonComponent';
+import {strings} from '../../localization';
+import {t} from '../../localization/t';
+import {fontScale} from '../../theme/fontScale';
+import {fonts} from '../../theme/fonts';
 
 const renderItem = ({
   item,
@@ -46,6 +51,12 @@ const CategoryTransactionScreen: React.FC = () => {
   return (
     <Container screenName={name}>
       <DashboardCounts />
+      <ButtonComponent
+        title={t(strings.common.addExpense)}
+        buttonStyle={styles.buttonStyle}
+        onPress={onPressAdd}
+        titleStyle={styles.buttonTitleStyle}
+      />
       <CardComponent style={styles.cardStyle} scroll={false}>
         {name === 'saving' ? (
           <FlatList
@@ -57,10 +68,7 @@ const CategoryTransactionScreen: React.FC = () => {
             contentInset={{bottom: scale(120)}}
           />
         ) : (
-          <CategoryTransactionSectionList
-            transaction={item}
-            onPressAdd={onPressAdd}
-          />
+          <CategoryTransactionSectionList transaction={item} />
         )}
       </CardComponent>
     </Container>
@@ -81,6 +89,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: scale(20),
     paddingTop: scale(25),
     gap: scale(25),
+  },
+  buttonStyle: {
+    position: 'absolute',
+    bottom: scale(118),
+    zIndex: 1,
+    alignSelf: 'center',
+    width: scale(150),
+    paddingVertical: scale(7),
+  },
+  buttonTitleStyle: {
+    fontSize: fontScale(14),
+    fontFamily: fonts.regular,
   },
 });
 
