@@ -30,19 +30,17 @@ const EditProfileScreen: React.FC = () => {
   };
   const handlePressDark = () => {
     isDark.value = !isDark.value;
-    switchTheme({
-      switchThemeFunction: () => {
-        dispatch(toggleTheme());
-      },
-      animationConfig: {
-        type: 'circular',
-        duration: 500,
-        startingPoint: {
-          cxRatio: 0.5,
-          cyRatio: 0.5,
+    setTimeout(() => {
+      switchTheme({
+        switchThemeFunction: () => {
+          dispatch(toggleTheme());
         },
-      },
-    });
+        animationConfig: {
+          type: 'fade',
+          duration: 700,
+        },
+      });
+    }, 400);
   };
   return (
     <Container screenName={t(strings.profile.editMyProfile)}>
