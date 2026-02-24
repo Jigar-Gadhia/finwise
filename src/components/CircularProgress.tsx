@@ -1,11 +1,12 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {scale} from 'react-native-size-matters';
 import {Canvas, Circle, Path} from '@shopify/react-native-skia';
 import {useAppTheme} from '../theme/ThemeContext';
 import {IconName} from '../utils/transactionData';
 import IconComponent from './IconComponent';
 import TextComponent from './TextComponent';
+import Stack from './Stack';
 
 interface CircularProgressProps {
   size: number;
@@ -33,6 +34,7 @@ const CircularProgress: React.FC<CircularProgressProps> = ({
   iconWidth = 24,
   iconHeight = 24,
   iconColor = 'text',
+  textColor = 'text',
 }) => {
   const {colors} = useAppTheme();
 
@@ -42,7 +44,7 @@ const CircularProgress: React.FC<CircularProgressProps> = ({
   const sweepAngle = (progressPercent / 100) * 360;
 
   return (
-    <View style={[styles.wrapper, {width: newSize, height: newSize}]}>
+    <Stack style={[styles.wrapper, {width: newSize, height: newSize}]}>
       <Canvas style={StyleSheet.absoluteFill}>
         <Circle
           cx={center}
@@ -65,7 +67,10 @@ const CircularProgress: React.FC<CircularProgressProps> = ({
           strokeCap="round"
         />
       </Canvas>
-      <View style={styles.centerOverlay} pointerEvents="none">
+      <Stack
+        alignItems="center"
+        justifyContent="center"
+        style={styles.centerOverlay}>
         {Icon ? (
           <IconComponent
             Icon={Icon}
@@ -74,12 +79,12 @@ const CircularProgress: React.FC<CircularProgressProps> = ({
             color={iconColor}
           />
         ) : (
-          <TextComponent variant="title" disableLineHeight color="text">
+          <TextComponent variant="title" disableLineHeight color={textColor}>
             {text}
           </TextComponent>
         )}
-      </View>
-    </View>
+      </Stack>
+    </Stack>
   );
 };
 
@@ -89,8 +94,6 @@ const styles = StyleSheet.create({
   },
   centerOverlay: {
     ...StyleSheet.absoluteFillObject,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 });
 

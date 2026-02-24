@@ -73,6 +73,23 @@ export const en = {
     goal: 'Goal',
     amountSaved: 'Amount Saved',
     addSavings: 'Add Savings',
+    profileName: 'John Smith',
+  },
+
+  profile: {
+    editProfile: 'Edit Profile',
+    security: 'Security',
+    setting: 'Setting',
+    help: 'Help',
+    logout: 'Logout',
+    editMyProfile: 'Edit My Profile',
+    accountSettings: 'account settings',
+    phone: 'Phone',
+    emailAdd: 'Email Address',
+    userName: 'Username',
+    pushNoti: 'push notifications',
+    dark: 'turn dark theme',
+    updatePro: 'Update Profile',
   },
 
   screenHeaders: {

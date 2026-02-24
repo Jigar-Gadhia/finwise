@@ -1,14 +1,12 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
 import IconComponent from './IconComponent';
 import TextComponent from './TextComponent';
 import {priceFormat} from '../utils/utils';
-import {scale} from 'react-native-size-matters';
-import {fontScale} from '../theme/fontScale';
 import {t} from '../localization/t';
 import {strings} from '../localization';
 import {useAppTheme} from '../theme/ThemeContext';
 import {IconName} from '../utils/transactionData';
+import Stack from './Stack';
 
 interface PriceWithIconProps {
   Icon: IconName;
@@ -29,46 +27,27 @@ const PriceWithIcon: React.FC<PriceWithIconProps> = ({
 }) => {
   const {colors} = useAppTheme();
   return (
-    <View style={styles.container}>
+    <Stack row alignItems="center" gap={6}>
       <IconComponent color={iconColor} Icon={Icon} height={28} width={31} />
-      <View style={styles.textContainer}>
-        <TextComponent color={color} weight="regular" style={styles.textStyle}>
+      <Stack gap={5}>
+        <TextComponent fontSize={12} color={color} weight="regular">
           {text}
         </TextComponent>
         <TextComponent
           weight="bold"
-          customLineHeight={16}
+          lineHeight={16}
           color={color}
-          style={[
-            styles.priceStyle,
-            negativePrice && {color: colors.vividBlue},
-          ]}>
+          fontSize={15}
+          style={negativePrice && {color: colors.vividBlue}}>
           {negativePrice
             ? t(strings.common.negativeAmount, {
                 amount: priceFormat().format(price),
               })
             : priceFormat().format(price)}
         </TextComponent>
-      </View>
-    </View>
+      </Stack>
+    </Stack>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: scale(6),
-  },
-  textStyle: {
-    fontSize: fontScale(12),
-  },
-  priceStyle: {
-    fontSize: fontScale(15),
-  },
-  textContainer: {
-    gap: scale(5),
-  },
-});
 
 export default PriceWithIcon;

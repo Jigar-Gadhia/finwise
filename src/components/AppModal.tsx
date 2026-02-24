@@ -1,6 +1,10 @@
-import React from 'react';
-import {Modal, View, StyleSheet, TouchableWithoutFeedback} from 'react-native';
+import React, {Fragment} from 'react';
+import {StyleSheet, TouchableWithoutFeedback, StatusBar} from 'react-native';
+import Animated, {FadeIn, FadeOut} from 'react-native-reanimated';
 import {LightColors} from '../theme/colors';
+import {useSelector} from 'react-redux';
+import {RootState} from '../store/store';
+import Stack from './Stack';
 
 interface AppModalProps {
   visible: boolean;
@@ -9,31 +13,46 @@ interface AppModalProps {
 }
 
 const AppModal: React.FC<AppModalProps> = ({visible, onClose, children}) => {
+  const {mode} = useSelector((state: RootState) => state.theme);
+
+  if (!visible) {
+    return null;
+  }
+
   return (
-    <Modal
-      transparent
-      visible={visible}
-      animationType="fade"
-      onRequestClose={onClose}>
+    <Fragment>
+      <StatusBar
+        barStyle={mode === 'dark' ? 'light-content' : 'dark-content'}
+        animated
+        backgroundColor="transparent"
+        translucent
+      />
       <TouchableWithoutFeedback onPress={onClose}>
-        <View style={styles.backdrop}>
-          <TouchableWithoutFeedback>
-            <View style={styles.container}>{children}</View>
-          </TouchableWithoutFeedback>
-        </View>
+        <Animated.View
+          entering={FadeIn.duration(200)}
+          exiting={FadeOut.duration(200)}
+          style={[StyleSheet.absoluteFill, styles.overlay]}>
+          <Stack
+            alignItems="center"
+            justifyContent="center"
+            style={styles.backdrop}>
+            <TouchableWithoutFeedback>{children}</TouchableWithoutFeedback>
+          </Stack>
+        </Animated.View>
       </TouchableWithoutFeedback>
-    </Modal>
+    </Fragment>
   );
 };
-
-export default AppModal;
 
 const styles = StyleSheet.create({
   backdrop: {
     flex: 1,
     backgroundColor: LightColors.transperent,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
-  container: {width: '100%', alignItems: 'center'},
+  overlay: {
+    zIndex: 9999, // iOS
+    elevation: 9999, // Android
+  },
 });
+
+export default AppModal;

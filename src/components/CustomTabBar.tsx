@@ -7,6 +7,7 @@ import {scale, verticalScale} from 'react-native-size-matters';
 import {LightColors} from '../theme/colors';
 import {icons} from '../utils/icons';
 import Animated, {ZoomIn, ZoomOut} from 'react-native-reanimated';
+import Stack from './Stack';
 
 const CustomTabBar: React.FC<BottomTabBarProps> = ({state, navigation}) => {
   const {colors} = useAppTheme();
@@ -39,14 +40,16 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({state, navigation}) => {
               onPress={onPress}
               activeOpacity={0.8}
               style={styles.tab}>
-              <View style={[styles.iconWrapper, focused && styles.activeIcon]}>
+              <Stack
+                p={10}
+                style={[styles.iconWrapper, focused && styles.activeIcon]}>
                 <IconComponent
                   Icon={TAB_ICONS[route.name]}
                   height={26}
                   width={26}
                   color={focused ? 'primary' : 'text'}
                 />
-              </View>
+              </Stack>
             </TouchableOpacity>
           </Animated.View>
         );
@@ -74,7 +77,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   iconWrapper: {
-    padding: scale(10),
     borderRadius: scale(18),
   },
   activeIcon: {

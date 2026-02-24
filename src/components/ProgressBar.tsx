@@ -1,13 +1,13 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {scale} from 'react-native-size-matters';
 import TextComponent from './TextComponent';
-import {fontScale} from '../theme/fontScale';
 import {t} from '../localization/t';
 import {strings} from '../localization';
 import {priceFormat} from '../utils/utils';
 import {useAppTheme} from '../theme/ThemeContext';
 import {LightColors} from '../theme/colors';
+import Stack from './Stack';
 
 interface ProgressBarProps {
   trackColor?: keyof typeof LightColors;
@@ -26,37 +26,30 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 }) => {
   const {colors} = useAppTheme();
   return (
-    <View style={[styles.container, {backgroundColor: colors[trackColor]}]}>
-      <TextComponent
-        weight="regular"
-        style={styles.percentageStyle}
-        color={textColor}>
+    <Stack
+      pv={6}
+      ph={22}
+      style={[styles.container, {backgroundColor: colors[trackColor]}]}>
+      <TextComponent weight="regular" fontSize={12} color={textColor}>
         {t(strings.common.percentage, {value: progressValue})}
       </TextComponent>
-      <View style={[styles.progressBar, {backgroundColor: colors[fillColor]}]}>
+      <Stack style={[styles.progressBar, {backgroundColor: colors[fillColor]}]}>
         <TextComponent
           disableLineHeight
           weight="medium"
-          style={[styles.progressPriceStyle, {color: colors.amountOnProgress}]}>
+          fontSize={13}
+          style={{color: colors.amountOnProgress}}>
           {priceFormat().format(total)}
         </TextComponent>
-      </View>
-    </View>
+      </Stack>
+    </Stack>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    paddingVertical: scale(6),
-    paddingHorizontal: scale(22),
     borderRadius: scale(13.5),
-  },
-  percentageStyle: {
-    fontSize: fontScale(12),
-  },
-  progressPriceStyle: {
-    fontSize: fontScale(13),
   },
   progressBar: {
     position: 'absolute',

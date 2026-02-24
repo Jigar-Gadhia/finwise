@@ -4,7 +4,7 @@ import CardWithHeader from '../../components/CardWithHeader';
 import {t} from '../../localization/t';
 import {strings} from '../../localization';
 import {scale} from 'react-native-size-matters';
-import ViewWithGap from '../../components/ViewWithGap';
+import Stack from '../../components/Stack';
 import InputWithLabel from '../../components/InputWithLabel';
 import ButtonComponent from '../../components/ButtonComponent';
 import {navigate} from '../../utils/navigationService';
@@ -18,8 +18,8 @@ const NewPasswordScreen: React.FC = () => {
     <CardWithHeader
       headerText={t(strings.common.newPassword)}
       cardStyle={styles.cardContainer}>
-      <ViewWithGap gap={140}>
-        <ViewWithGap gap={30}>
+      <Stack gap={140}>
+        <Stack gap={30}>
           <InputWithLabel
             leftMargin={false}
             label={t(strings.common.newPassword)}
@@ -32,13 +32,13 @@ const NewPasswordScreen: React.FC = () => {
             password
             placeholder={t(strings.common.passwordPlaceholder)}
           />
-        </ViewWithGap>
+        </Stack>
         <ButtonComponent
           title={t(strings.common.changePassword)}
           buttonStyle={styles.buttonComponent}
           onPress={onPressChangePassword}
         />
-      </ViewWithGap>
+      </Stack>
     </CardWithHeader>
   );
 };

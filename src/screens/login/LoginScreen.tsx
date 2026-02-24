@@ -5,7 +5,7 @@ import {strings} from '../../localization';
 import {fontScale} from '../../theme/fontScale';
 import InputWithLabel from '../../components/InputWithLabel';
 import {scale} from 'react-native-size-matters';
-import ViewWithGap from '../../components/ViewWithGap';
+import Stack from '../../components/Stack';
 import ButtonComponent from '../../components/ButtonComponent';
 import {t} from '../../localization/t';
 import {navigate} from '../../utils/navigationService';
@@ -31,7 +31,7 @@ const LoginScreen: React.FC = () => {
     <CardWithHeader
       headerText={t(strings.common.welcomeHeader)}
       cardStyle={styles.cardContainer}>
-      <ViewWithGap gap={15}>
+      <Stack gap={15}>
         <InputWithLabel
           label={t(strings.common.userName)}
           placeholder={t(strings.common.emailPlaceholder)}
@@ -41,8 +41,8 @@ const LoginScreen: React.FC = () => {
           placeholder={t(strings.common.passwordPlaceholder)}
           password
         />
-      </ViewWithGap>
-      <ViewWithGap center gap={10} marginTop={60}>
+      </Stack>
+      <Stack alignItems="center" gap={10} mt={60}>
         <ButtonComponent
           title={t(strings.common.login)}
           onPress={onPressLogin}
@@ -54,7 +54,7 @@ const LoginScreen: React.FC = () => {
           onPress={onPressForgotPassword}>
           {t(strings.common.forgot)}
         </TextComponent>
-        <ViewWithGap gap={16}>
+        <Stack gap={16}>
           <ButtonComponent
             title={t(strings.common.signUp)}
             bgColor="divider"
@@ -65,15 +65,15 @@ const LoginScreen: React.FC = () => {
             highlight={t(strings.common.fingerprintHightlight)}
             onPressHighlight={onPressFingerprint}
           />
-        </ViewWithGap>
-        <ViewWithGap gap={12} marginTop={10}>
+        </Stack>
+        <Stack gap={12} mt={10}>
           <TextComponent
             variant="paragraph"
             align="center"
             style={styles.forgotText}>
             {t(strings.common.signupWith)}
           </TextComponent>
-          <ViewWithGap gap={20}>
+          <Stack gap={20} alignItems="center">
             <SocialMediaButtons />
             <HighlightTextComponent
               variant="paragraph"
@@ -82,9 +82,9 @@ const LoginScreen: React.FC = () => {
               fontSize={11}
               onPressHighlight={onPressSignup}
             />
-          </ViewWithGap>
-        </ViewWithGap>
-      </ViewWithGap>
+          </Stack>
+        </Stack>
+      </Stack>
     </CardWithHeader>
   );
 };

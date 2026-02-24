@@ -1,17 +1,18 @@
 import React, {memo} from 'react';
-import {View, StyleSheet, SectionList, Platform} from 'react-native';
+import {StyleSheet, SectionList, Platform} from 'react-native';
 import CardComponent from './CardComponent';
 import {notifications} from '../utils/notificationsData';
 import NotificationItemComponent from './NotificationItemComponent';
 import {scale} from 'react-native-size-matters';
 import RowDevider from './RowDevider';
 import TextComponent from './TextComponent';
+import Stack from './Stack';
 
 const Saparator = () => {
   return (
-    <View style={styles.saparator}>
+    <Stack mt={8} mb={20}>
       <RowDevider color="caribbeanGreen" />
-    </View>
+    </Stack>
   );
 };
 
@@ -32,11 +33,11 @@ const NotificationList: React.FC = () => {
           return <NotificationItemComponent item={item} />;
         }}
         renderSectionHeader={({section}) => (
-          <View style={styles.sectionHeaderStyle}>
+          <Stack mb={10}>
             <TextComponent variant="subtext" disableLineHeight>
               {section.title}
             </TextComponent>
-          </View>
+          </Stack>
         )}
         stickySectionHeadersEnabled={false}
         renderSectionFooter={Saparator}
@@ -52,9 +53,6 @@ const styles = StyleSheet.create({
     paddingTop: scale(25),
     paddingHorizontal: scale(25),
     paddingBottom: scale(Platform.OS === 'android' ? 110 : 0),
-  },
-  sectionHeaderStyle: {
-    marginBottom: scale(10),
   },
   saparator: {
     marginTop: scale(8),

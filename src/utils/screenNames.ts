@@ -12,6 +12,8 @@ export const screenNames = {
   Transactions: 'Transactions',
   TransactionsScreen: 'TransactionsScreen',
   Profile: 'Profile',
+  ProfileScreen: 'ProfileScreen',
+  EditProfileScreen: 'EditProfileScreen',
   Tab: 'Tab',
   QuicklyAnalysisScreen: 'QuicklyAnalysis',
   NotificationsScreen: 'NotificationsScreen',

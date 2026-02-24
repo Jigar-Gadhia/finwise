@@ -4,7 +4,7 @@ import CardWithHeader from '../../components/CardWithHeader';
 import {t} from '../../localization/t';
 import {strings} from '../../localization';
 import {scale} from 'react-native-size-matters';
-import ViewWithGap from '../../components/ViewWithGap';
+import Stack from '../../components/Stack';
 import TextComponent from '../../components/TextComponent';
 import ButtonComponent from '../../components/ButtonComponent';
 import SocialMediaButtons from '../../components/SocialMediaButtons';
@@ -28,13 +28,13 @@ const SecurityPinScreen: React.FC = () => {
     <CardWithHeader
       headerText={t(strings.common.securityPinHeader)}
       cardStyle={styles.cardContainer}>
-      <ViewWithGap gap={40}>
+      <Stack gap={40}>
         <TextComponent variant="title" align="center">
           {t(strings.common.securityPinText)}
         </TextComponent>
         <OTPInput />
-      </ViewWithGap>
-      <ViewWithGap gap={12} marginTop={60}>
+      </Stack>
+      <Stack gap={12} mt={60}>
         <ButtonComponent
           title={t(strings.common.accept)}
           buttonStyle={styles.buttonStyle}
@@ -46,15 +46,15 @@ const SecurityPinScreen: React.FC = () => {
           bgColor="divider"
           onPress={onPressSendAgain}
         />
-      </ViewWithGap>
-      <ViewWithGap marginTop={140}>
+      </Stack>
+      <Stack mt={140}>
         <TextComponent
           variant="paragraph"
           align="center"
           style={styles.forgotText}>
           {t(strings.common.signupWith)}
         </TextComponent>
-        <ViewWithGap marginTop={10} center gap={18}>
+        <Stack mt={10} alignItems="center" gap={18}>
           <SocialMediaButtons />
           <HighlightTextComponent
             variant="paragraph"
@@ -63,8 +63,8 @@ const SecurityPinScreen: React.FC = () => {
             fontSize={11}
             onPressHighlight={onPressSignup}
           />
-        </ViewWithGap>
-      </ViewWithGap>
+        </Stack>
+      </Stack>
     </CardWithHeader>
   );
 };

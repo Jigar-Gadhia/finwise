@@ -1,15 +1,13 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
 import {useAppTheme} from '../theme/ThemeContext';
 import CircularProgress from './CircularProgress';
 import TextComponent from './TextComponent';
 import {strings} from '../localization';
 import PriceWithIcon from './PriceWithIcon';
 import {t} from '../localization/t';
-import {scale} from 'react-native-size-matters';
-import {fontScale} from '../theme/fontScale';
 import ColumnDevider from './ColumnDevider';
 import RowDevider from './RowDevider';
+import Stack from './Stack';
 
 interface ExpenseComponentProps {
   textColor: keyof ReturnType<typeof useAppTheme>['colors'];
@@ -25,8 +23,8 @@ const ExpenseComponent: React.FC<ExpenseComponentProps> = ({
   negativePrice = false,
 }) => {
   return (
-    <View style={styles.rowcontainer}>
-      <View style={styles.savingContainer}>
+    <Stack row alignItems="center" justifyContent="center" gap={10}>
+      <Stack alignItems="center" gap={5} mr={10}>
         <CircularProgress
           progressPercent={50}
           size={68}
@@ -45,13 +43,13 @@ const ExpenseComponent: React.FC<ExpenseComponentProps> = ({
           weight="medium"
           align="center"
           color={savingsTextColor}
-          style={styles.savingText}
+          fontSize={12}
           disableLineHeight>
           {t(strings.cards.savingsOnGoals)}
         </TextComponent>
-      </View>
+      </Stack>
       <ColumnDevider color="amountPositive" />
-      <View style={styles.priceContainer}>
+      <Stack gap={15}>
         <PriceWithIcon
           Icon={'salary'}
           text={t(strings.cards.revenueLastWeek)}
@@ -68,35 +66,9 @@ const ExpenseComponent: React.FC<ExpenseComponentProps> = ({
           color={textColor}
           iconColor={iconColor}
         />
-      </View>
-    </View>
+      </Stack>
+    </Stack>
   );
 };
-
-const styles = StyleSheet.create({
-  rowcontainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: scale(10),
-  },
-  savingContainer: {
-    alignItems: 'center',
-    gap: scale(5),
-    marginRight: scale(10),
-  },
-  savingText: {
-    fontSize: fontScale(12),
-  },
-  priceContainer: {
-    flex: 1,
-    gap: scale(15),
-  },
-  seperator: {
-    width: '100%',
-    height: scale(2),
-    alignSelf: 'center',
-  },
-});
 
 export default ExpenseComponent;

@@ -1,9 +1,10 @@
 import React from 'react';
-import {View, StyleSheet, ViewStyle} from 'react-native';
+import {StyleSheet, ViewStyle} from 'react-native';
 import Container from './Container';
 import TextComponent from './TextComponent';
 import CardComponent from './CardComponent';
 import {fontScale} from '../theme/fontScale';
+import Stack from './Stack';
 
 interface CardWithHeaderProps {
   headerText: string;
@@ -18,14 +19,17 @@ const CardWithHeader: React.FC<CardWithHeaderProps> = ({
 }) => {
   return (
     <Container showHeader={false}>
-      <View style={styles.textContainer}>
+      <Stack
+        alignItems="center"
+        justifyContent="center"
+        style={styles.textContainer}>
         <TextComponent
           variant="title"
-          customLineHeight={39}
+          lineHeight={39}
           style={styles.textStyles}>
           {headerText}
         </TextComponent>
-      </View>
+      </Stack>
       <CardComponent scrollStyle={cardStyle}>{children}</CardComponent>
     </Container>
   );
@@ -34,8 +38,6 @@ const CardWithHeader: React.FC<CardWithHeaderProps> = ({
 const styles = StyleSheet.create({
   textContainer: {
     height: '15%',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   textStyles: {
     textAlign: 'center',

@@ -1,5 +1,6 @@
 export const LightColors = {
   background: '#00D09E',
+  welcomeBg: '#F1FFF3',
   card: '#F1FFF3',
   tab: '#DFF7E2',
   primary: '#FFFFFF',
@@ -29,6 +30,7 @@ export const LightColors = {
 export const DarkColors = {
   ...LightColors,
   background: '#052224',
+  welcomeBg: '#052224',
   card: '#093030',
   tab: '#0E3E3E',
   primary: '#000000',

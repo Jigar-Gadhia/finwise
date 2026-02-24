@@ -42,6 +42,12 @@ import Google from '../assets/icons/google.svg';
 import Fingerprint from '../assets/icons/fingerprint.svg';
 import More from '../assets/icons/categories/more.svg';
 import DrowDown from '../assets/icons/form/dropdown.svg';
+import ProfilePlaceholer from '../assets/icons/profile/profile.svg';
+import Security from '../assets/icons/profile/security.svg';
+import Help from '../assets/icons/profile/help.svg';
+import Settings from '../assets/icons/profile/settings.svg';
+import Logout from '../assets/icons/profile/logout.svg';
+import Camera from '../assets/icons/profile/camera.svg';
 
 export const icons = {
   home: Home,
@@ -88,4 +94,10 @@ export const icons = {
   fingerprint: Fingerprint,
   more: More,
   dropDown: DrowDown,
+  profilePlaceholer: ProfilePlaceholer,
+  security: Security,
+  help: Help,
+  settings: Settings,
+  logout: Logout,
+  camera: Camera,
 };

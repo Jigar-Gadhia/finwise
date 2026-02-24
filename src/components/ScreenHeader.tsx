@@ -1,12 +1,12 @@
-import {View, StyleSheet, TouchableOpacity} from 'react-native';
+import {TouchableOpacity} from 'react-native';
 import React from 'react';
-import {scale} from 'react-native-size-matters';
 import TextComponent from './TextComponent';
 import {t} from '../localization/t';
 import {strings} from '../localization';
 import IconComponent from './IconComponent';
 import {goBack, navigate} from '../utils/navigationService';
 import {screenNames} from '../utils/screenNames';
+import Stack from './Stack';
 
 interface ScreenHeaderProps {
   name?: string;
@@ -24,16 +24,20 @@ const ScreenHeader: React.FC<ScreenHeaderProps> = ({
   };
   return (
     <React.Fragment>
-      <View style={[styles.container, home && styles.homeContainer]}>
+      <Stack
+        row
+        justifyContent="space-between"
+        alignItems={home ? 'flex-start' : 'center'}
+        p={25}>
         {home ? (
-          <View>
+          <Stack>
             <TextComponent variant="title" color="screenTitle">
               {t(strings.greetings.welcomeBack)}
             </TextComponent>
             <TextComponent variant="subtext" color="screenTitle">
               {t(strings.greetings.goodMorning)}
             </TextComponent>
-          </View>
+          </Stack>
         ) : (
           <React.Fragment>
             <TouchableOpacity onPress={goBack}>
@@ -55,22 +59,9 @@ const ScreenHeader: React.FC<ScreenHeaderProps> = ({
             width={28}
           />
         </TouchableOpacity>
-      </View>
+      </Stack>
     </React.Fragment>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: scale(25),
-    paddingHorizontal: scale(25),
-  },
-  homeContainer: {
-    alignItems: 'flex-start',
-  },
-});
 
 export default ScreenHeader;

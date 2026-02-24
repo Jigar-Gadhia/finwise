@@ -1,5 +1,5 @@
 import React, {memo, useMemo} from 'react';
-import {View, StyleSheet, SectionList, Platform} from 'react-native';
+import {StyleSheet, SectionList, Platform} from 'react-native';
 import {transactionData} from '../utils/transactionData';
 import moment from 'moment';
 import {scale} from 'react-native-size-matters';
@@ -50,11 +50,9 @@ const TransactionSectionList: React.FC<TransactionSectionListProps> = ({
           return <TransactionItemComponent item={item} />;
         }}
         renderSectionHeader={({section}) => (
-          <View>
-            <TextComponent variant="subtitle" disableLineHeight>
-              {section.title}
-            </TextComponent>
-          </View>
+          <TextComponent variant="subtitle" disableLineHeight>
+            {section.title}
+          </TextComponent>
         )}
         stickySectionHeadersEnabled={false}
         contentInset={{bottom: scale(120)}}

@@ -38,16 +38,14 @@ const BalanceComponent: React.FC<BalanceComponentProps> = ({
       <TextComponent
         weight="bold"
         variant="title"
-        style={[
-          styles.priceStyle,
-          {
-            color: backgoundEnabled
-              ? colors.staticBlack
-              : expense
-              ? colors.vividBlue
-              : colors.amountPositive,
-          },
-        ]}
+        fontSize={20}
+        style={{
+          color: backgoundEnabled
+            ? colors.staticBlack
+            : expense
+            ? colors.vividBlue
+            : colors.amountPositive,
+        }}
         disableLineHeight>
         {amount}
       </TextComponent>
@@ -62,9 +60,6 @@ const styles = StyleSheet.create({
     borderRadius: scale(14),
     flexShrink: 1,
     alignItems: 'center',
-  },
-  priceStyle: {
-    fontSize: scale(20),
   },
 });
 

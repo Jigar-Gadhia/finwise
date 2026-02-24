@@ -12,11 +12,9 @@ import {screenNames} from '../../utils/screenNames';
 import {categoriesType, savingsData} from '../../utils/categoriesData';
 import CategoryItem from '../../components/CategoryItem';
 import {setSaving} from '../../store/slices/savingSlice';
-import ButtonComponent from '../../components/ButtonComponent';
 import {strings} from '../../localization';
 import {t} from '../../localization/t';
-import {fontScale} from '../../theme/fontScale';
-import {fonts} from '../../theme/fonts';
+import FloatingButton from '../../components/FloatingButton';
 
 const renderItem = ({
   item,
@@ -51,11 +49,13 @@ const CategoryTransactionScreen: React.FC = () => {
   return (
     <Container screenName={name}>
       <DashboardCounts />
-      <ButtonComponent
-        title={t(strings.common.addExpense)}
-        buttonStyle={styles.buttonStyle}
+      <FloatingButton
+        title={t(
+          name === 'saving'
+            ? strings.common.addSavings
+            : strings.common.addExpense,
+        )}
         onPress={onPressAdd}
-        titleStyle={styles.buttonTitleStyle}
       />
       <CardComponent style={styles.cardStyle} scroll={false}>
         {name === 'saving' ? (
@@ -89,18 +89,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: scale(20),
     paddingTop: scale(25),
     gap: scale(25),
-  },
-  buttonStyle: {
-    position: 'absolute',
-    bottom: scale(118),
-    zIndex: 1,
-    alignSelf: 'center',
-    width: scale(150),
-    paddingVertical: scale(7),
-  },
-  buttonTitleStyle: {
-    fontSize: fontScale(14),
-    fontFamily: fonts.regular,
   },
 });
 

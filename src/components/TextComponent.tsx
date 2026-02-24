@@ -12,25 +12,34 @@ type Props = TextProps & {
   color?: keyof ReturnType<typeof useAppTheme>['colors'];
   align?: 'left' | 'center' | 'right';
   weight?: FontWeight;
+  fontSize?: number;
+  lineHeight?: number;
   disableLineHeight?: boolean;
   capitalised?: boolean;
-  customLineHeight?: number;
 };
+
+const LINE_HEIGHT_RATIO = 1.45;
 
 const TextComponent: React.FC<Props> = ({
   variant = 'paragraph',
   color = 'text',
   align = 'left',
   weight,
+  fontSize,
+  lineHeight,
   disableLineHeight = false,
   capitalised = false,
-  customLineHeight,
   style,
   children,
   ...rest
 }) => {
   const {colors} = useAppTheme();
   const base = typography[variant];
+
+  const finalFontSize = fontSize ?? base.fontSize;
+  const finalLineHeight = disableLineHeight
+    ? undefined
+    : lineHeight ?? undefined;
 
   const fontFamily = fonts[weight ?? base.weight];
 
@@ -40,18 +49,12 @@ const TextComponent: React.FC<Props> = ({
       style={[
         styles.text,
         {
-          fontSize: fontScale(base.fontSize),
+          fontSize: fontScale(finalFontSize),
+          lineHeight: finalLineHeight ? fontScale(finalLineHeight) : undefined,
           fontFamily,
           color: colors[color],
           textAlign: align,
           textTransform: capitalised ? 'capitalize' : 'none',
-          ...(disableLineHeight
-            ? null
-            : {
-                lineHeight: customLineHeight
-                  ? fontScale(customLineHeight)
-                  : fontScale(base.lineHeight),
-              }),
         },
         style,
       ]}>

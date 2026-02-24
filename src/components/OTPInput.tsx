@@ -1,6 +1,5 @@
 import React, {useRef, useState} from 'react';
 import {
-  View,
   TextInput,
   StyleSheet,
   NativeSyntheticEvent,
@@ -8,6 +7,7 @@ import {
 } from 'react-native';
 import {scale} from 'react-native-size-matters';
 import {useAppTheme} from '../theme/ThemeContext';
+import Stack from './Stack';
 
 const OTP_LENGTH = 6;
 
@@ -55,7 +55,7 @@ const OTPInput: React.FC = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <Stack row justifyContent="space-between" style={styles.container}>
       {otp.map((digit, index) => (
         <TextInput
           key={index}
@@ -76,16 +76,13 @@ const OTPInput: React.FC = () => {
           textAlign="center"
         />
       ))}
-    </View>
+    </Stack>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
     width: '100%',
-    padding: scale(10),
     borderRadius: scale(8),
   },
   input: {

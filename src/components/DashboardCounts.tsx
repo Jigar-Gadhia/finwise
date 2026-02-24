@@ -8,12 +8,17 @@ import {useAppTheme} from '../theme/ThemeContext';
 import ProgressBar from './ProgressBar';
 import {priceFormat} from '../utils/utils';
 import BalanceComponent from './BalanceComponent';
+import Stack from './Stack';
 
 const DashboardCounts: React.FC = () => {
   const {colors} = useAppTheme();
   return (
-    <View style={styles.mainContainer}>
-      <View style={styles.container}>
+    <Stack gap={15} alignItems="center" style={styles.mainContainer}>
+      <Stack
+        row
+        alignItems="center"
+        justifyContent="space-around"
+        style={styles.container}>
         <BalanceComponent amount={priceFormat().format(7723)} />
         <View style={[styles.saperator, {backgroundColor: colors.divider}]} />
         <BalanceComponent
@@ -22,7 +27,7 @@ const DashboardCounts: React.FC = () => {
             amount: priceFormat().format(1187),
           })}
         />
-      </View>
+      </Stack>
       <View style={styles.progressBarContainer}>
         <ProgressBar />
         <TextIconInline
@@ -32,21 +37,16 @@ const DashboardCounts: React.FC = () => {
           text={t(strings.progress.expenseInsight, {value: 30})}
         />
       </View>
-    </View>
+    </Stack>
   );
 };
 
 const styles = StyleSheet.create({
   mainContainer: {
-    alignItems: 'center',
-    gap: scale(15),
     width: '92%',
     alignSelf: 'center',
   },
   container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-around',
     width: '90%',
   },
   saperator: {

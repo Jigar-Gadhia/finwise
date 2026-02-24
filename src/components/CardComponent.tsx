@@ -1,7 +1,8 @@
 import React from 'react';
-import {View, StyleSheet, ViewStyle, ScrollView} from 'react-native';
+import {StyleSheet, ViewStyle, ScrollView, Platform} from 'react-native';
 import {scale} from 'react-native-size-matters';
 import {useAppTheme} from '../theme/ThemeContext';
+import Stack from './Stack';
 
 interface CardComponentProps {
   children: React.ReactNode;
@@ -18,19 +19,20 @@ const CardComponent: React.FC<CardComponentProps> = ({
 }) => {
   const {colors} = useAppTheme();
   return (
-    <View style={[styles.container, {backgroundColor: colors.card}, style]}>
+    <Stack style={[styles.container, {backgroundColor: colors.card}, style]}>
       {scroll ? (
         <ScrollView
           contentContainerStyle={[styles.scrollStyle, scrollStyle]}
           showsVerticalScrollIndicator={false}
           overScrollMode="never"
+          contentInset={{bottom: scale(115), top: 0}}
           keyboardShouldPersistTaps="always">
           {children}
         </ScrollView>
       ) : (
         children
       )}
-    </View>
+    </Stack>
   );
 };
 
@@ -42,7 +44,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   scrollStyle: {
-    paddingBottom: scale(110),
+    paddingBottom: Platform.select({android: scale(110), ios: 0}),
   },
 });
 

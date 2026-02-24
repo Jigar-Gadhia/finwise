@@ -384,6 +384,9 @@ PODS:
     - React
     - React-callinvoker
     - React-Core
+  - react-native-theme-switch-animation (0.8.0):
+    - RCT-Folly (= 2021.07.22.00)
+    - React-Core
   - React-NativeModulesApple (0.72.9):
     - hermes-engine
     - React-callinvoker
@@ -572,6 +575,7 @@ DEPENDENCIES:
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - "react-native-skia (from `../node_modules/@shopify/react-native-skia`)"
+  - react-native-theme-switch-animation (from `../node_modules/react-native-theme-switch-animation`)
   - React-NativeModulesApple (from `../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -662,6 +666,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-skia:
     :path: "../node_modules/@shopify/react-native-skia"
+  react-native-theme-switch-animation:
+    :path: "../node_modules/react-native-theme-switch-animation"
   React-NativeModulesApple:
     :path: "../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios"
   React-perflogger:
@@ -746,6 +752,7 @@ SPEC CHECKSUMS:
   React-logger: f42d2f2bc4cbb5d19d7c0ce84b8741b1e54e88c8
   react-native-safe-area-context: 9697629f7b2cda43cf52169bb7e0767d330648c2
   react-native-skia: 09bd76631e15b84d647c6103a99cc03438861ac8
+  react-native-theme-switch-animation: c8ebea8579a8909539a4a470cfdabaa23e1ac70f
   React-NativeModulesApple: 9f72feb8a04020b32417f768a7e1e40eec91fef4
   React-perflogger: cb433f318c6667060fc1f62e26eb58d6eb30a627
   React-RCTActionSheet: 0af3f8ac067e8a1dde902810b7ad169d0a0ec31e

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import Container from '../../components/Container';
 import {t} from '../../localization/t';
 import {strings} from '../../localization';
@@ -11,6 +11,7 @@ import ButtonComponent from '../../components/ButtonComponent';
 import {fontScale} from '../../theme/fontScale';
 import {fonts} from '../../theme/fonts';
 import {goBack} from '../../utils/navigationService';
+import Stack from '../../components/Stack';
 
 const AddSavingsScreen: React.FC = () => {
   const onPressSave = () => {
@@ -19,7 +20,7 @@ const AddSavingsScreen: React.FC = () => {
   return (
     <Container screenName={t(strings.common.addSavings)}>
       <CardComponent scrollStyle={styles.scrollStyle}>
-        <View style={styles.inputContainer}>
+        <Stack gap={20}>
           <InputWithLabel
             value={t(strings.common.datePlaceholder)}
             label={t(strings.common.date)}
@@ -58,7 +59,7 @@ const AddSavingsScreen: React.FC = () => {
             titleStyle={styles.buttonTitleStyle}
             onPress={onPressSave}
           />
-        </View>
+        </Stack>
       </CardComponent>
     </Container>
   );
@@ -68,9 +69,6 @@ const styles = StyleSheet.create({
   scrollStyle: {
     paddingHorizontal: scale(35),
     paddingTop: scale(20),
-  },
-  inputContainer: {
-    gap: scale(20),
   },
   buttonStyle: {
     alignSelf: 'center',

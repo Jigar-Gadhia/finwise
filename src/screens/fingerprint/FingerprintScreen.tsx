@@ -4,7 +4,7 @@ import CardWithHeader from '../../components/CardWithHeader';
 import {t} from '../../localization/t';
 import {strings} from '../../localization';
 import {scale} from 'react-native-size-matters';
-import ViewWithGap from '../../components/ViewWithGap';
+import Stack from '../../components/Stack';
 import IconComponent from '../../components/IconComponent';
 import TextComponent from '../../components/TextComponent';
 import ButtonComponent from '../../components/ButtonComponent';
@@ -19,9 +19,9 @@ const FingerprintScreen: React.FC = () => {
     <CardWithHeader
       headerText={t(strings.common.securityFin)}
       cardStyle={styles.cardContainer}>
-      <ViewWithGap center gap={40}>
+      <Stack alignItems="center" gap={40}>
         <IconComponent Icon="fingerprint" height={175} width={175} />
-        <ViewWithGap center gap={16}>
+        <Stack alignItems="center" gap={16}>
           <TextComponent variant="title" color="title" capitalised>
             {t(strings.common.finTitle)}
           </TextComponent>
@@ -29,12 +29,12 @@ const FingerprintScreen: React.FC = () => {
             align="center"
             style={styles.textStyle}
             variant="subtitle"
-            customLineHeight={16}
+            lineHeight={16}
             capitalised>
             {t(strings.common.finText)}
           </TextComponent>
-        </ViewWithGap>
-        <ViewWithGap marginTop={10} fullWidth gap={25}>
+        </Stack>
+        <Stack mt={10} fullWidth gap={25}>
           <ButtonComponent
             title={t(strings.common.touchId)}
             fullWidth
@@ -47,8 +47,8 @@ const FingerprintScreen: React.FC = () => {
             style={styles.pinTextStyle}>
             {t(strings.common.touchIdText)}
           </TextComponent>
-        </ViewWithGap>
-      </ViewWithGap>
+        </Stack>
+      </Stack>
     </CardWithHeader>
   );
 };

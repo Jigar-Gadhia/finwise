@@ -4,7 +4,6 @@ import {LightColors} from '../theme/colors';
 import TextComponent from './TextComponent';
 import {scale} from 'react-native-size-matters';
 import {useAppTheme} from '../theme/ThemeContext';
-import {fontScale} from '../theme/fontScale';
 
 interface ButtonComponentProps {
   onPress?: () => void;
@@ -39,7 +38,8 @@ const ButtonComponent: React.FC<ButtonComponentProps> = ({
       <TextComponent
         align="center"
         variant="subtitle"
-        style={[styles.textStyle, titleStyle]}
+        style={titleStyle}
+        fontSize={18}
         disableLineHeight
         color="staticBlack">
         {title}
@@ -52,9 +52,6 @@ const styles = StyleSheet.create({
   container: {
     paddingVertical: scale(8),
     borderRadius: scale(30),
-  },
-  textStyle: {
-    fontSize: fontScale(18),
   },
 });
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {useSelector} from 'react-redux';
 import {RootState} from '../../store/store';
 import Container from '../../components/Container';
@@ -8,7 +8,7 @@ import {scale} from 'react-native-size-matters';
 import {t} from '../../localization/t';
 import {strings} from '../../localization';
 import CircularProgressWithText from '../../components/CircularProgressWithText';
-import ViewWithGap from '../../components/ViewWithGap';
+import Stack from '../../components/Stack';
 import TextIconInline from '../../components/TextIconInline';
 import TextComponent from '../../components/TextComponent';
 import {priceFormat} from '../../utils/utils';
@@ -18,10 +18,9 @@ import moment from 'moment';
 import IconComponent from '../../components/IconComponent';
 import {generateTransactions} from '../../components/CategoryTransactionSectionList';
 import CategoryTransactionItem from '../../components/CategoryTransactionItem';
-import ButtonComponent from '../../components/ButtonComponent';
-import {fonts} from '../../theme/fonts';
 import {navigate} from '../../utils/navigationService';
 import {screenNames} from '../../utils/screenNames';
+import FloatingButton from '../../components/FloatingButton';
 
 const savingsData = generateTransactions(0, 3);
 
@@ -33,17 +32,15 @@ const SavingScreen: React.FC = () => {
   };
   return (
     <Container screenName={name}>
-      <ButtonComponent
+      <FloatingButton
         title={t(strings.common.addSavings)}
-        buttonStyle={styles.buttonStyle}
-        titleStyle={styles.buttonTitleStyle}
         onPress={onPressAddSavings}
       />
       <CardComponent scrollStyle={styles.scrollStyle}>
-        <ViewWithGap gap={25}>
-          <ViewWithGap row justifyContent="space-between">
-            <ViewWithGap gap={8}>
-              <ViewWithGap>
+        <Stack gap={25}>
+          <Stack row justifyContent="space-between">
+            <Stack gap={8}>
+              <Stack>
                 <TextIconInline
                   Icon="arrowUp"
                   text={t(strings.common.goal)}
@@ -55,8 +52,8 @@ const SavingScreen: React.FC = () => {
                   variant="title">
                   {priceFormat().format(1962.93)}
                 </TextComponent>
-              </ViewWithGap>
-              <ViewWithGap>
+              </Stack>
+              <Stack>
                 <TextIconInline
                   Icon="arrowUp"
                   text={t(strings.common.amountSaved)}
@@ -68,8 +65,8 @@ const SavingScreen: React.FC = () => {
                   color="caribbeanGreen">
                   {priceFormat().format(653.31)}
                 </TextComponent>
-              </ViewWithGap>
-            </ViewWithGap>
+              </Stack>
+            </Stack>
             <CircularProgressWithText
               progressText={30}
               icon={icon}
@@ -78,8 +75,8 @@ const SavingScreen: React.FC = () => {
               circleSize={80}
               containerStyle={styles.circleContainer}
             />
-          </ViewWithGap>
-          <View style={styles.progressContainer}>
+          </Stack>
+          <Stack gap={6}>
             <ProgressBar
               fillColor="progressInvertFill"
               trackColor="progressInvertTrack"
@@ -93,15 +90,15 @@ const SavingScreen: React.FC = () => {
               Icon={'boxChecked'}
               text={t(strings.progress.expenseInsight, {value: 30})}
             />
-          </View>
-          <ViewWithGap gap={8}>
-            <ViewWithGap row justifyContent="space-between">
+          </Stack>
+          <Stack gap={8}>
+            <Stack row justifyContent="space-between">
               <TextComponent variant="subtitle" disableLineHeight>
                 {moment().format('MMMM')}
               </TextComponent>
               <IconComponent Icon="calender" height={30} width={30} />
-            </ViewWithGap>
-            <ViewWithGap gap={15}>
+            </Stack>
+            <Stack gap={15}>
               {savingsData.map((sav, index) => {
                 return (
                   <CategoryTransactionItem
@@ -113,9 +110,9 @@ const SavingScreen: React.FC = () => {
                   />
                 );
               })}
-            </ViewWithGap>
-          </ViewWithGap>
-        </ViewWithGap>
+            </Stack>
+          </Stack>
+        </Stack>
       </CardComponent>
     </Container>
   );
@@ -142,21 +139,6 @@ const styles = StyleSheet.create({
   },
   iconTextStyle: {
     fontSize: scale(12),
-  },
-  progressContainer: {
-    gap: scale(6),
-  },
-  buttonStyle: {
-    position: 'absolute',
-    bottom: scale(118),
-    zIndex: 1,
-    alignSelf: 'center',
-    width: scale(150),
-    paddingVertical: scale(7),
-  },
-  buttonTitleStyle: {
-    fontSize: fontScale(14),
-    fontFamily: fonts.regular,
   },
 });
 

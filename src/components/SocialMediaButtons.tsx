@@ -1,5 +1,5 @@
 import React from 'react';
-import ViewWithGap from './ViewWithGap';
+import Stack from './Stack';
 import IconComponent from './IconComponent';
 
 interface SocialMediaButtonsProps {
@@ -12,7 +12,7 @@ const SocialMediaButtons: React.FC<SocialMediaButtonsProps> = ({
   onPressGoogle,
 }) => {
   return (
-    <ViewWithGap row gap={12}>
+    <Stack row gap={12}>
       <IconComponent
         Icon="fb"
         color="text"
@@ -27,7 +27,7 @@ const SocialMediaButtons: React.FC<SocialMediaButtonsProps> = ({
         width={32}
         onPress={onPressGoogle}
       />
-    </ViewWithGap>
+    </Stack>
   );
 };
 

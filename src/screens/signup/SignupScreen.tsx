@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 import TextComponent from '../../components/TextComponent';
 import {t} from '../../localization/t';
 import {strings} from '../../localization';
-import ViewWithGap from '../../components/ViewWithGap';
+import Stack from '../../components/Stack';
 import InputWithLabel from '../../components/InputWithLabel';
 import ButtonComponent from '../../components/ButtonComponent';
 import {fontScale} from '../../theme/fontScale';
@@ -24,7 +24,7 @@ const SignupScreen: React.FC = () => {
     <CardWithHeader
       headerText={t(strings.common.signupHeader)}
       cardStyle={styles.cardContainer}>
-      <ViewWithGap gap={15}>
+      <Stack gap={15}>
         <InputWithLabel
           label={t(strings.common.fullName)}
           placeholder={t(strings.common.emailPlaceholder)}
@@ -51,8 +51,8 @@ const SignupScreen: React.FC = () => {
           placeholder={t(strings.common.passwordPlaceholder)}
           password
         />
-      </ViewWithGap>
-      <ViewWithGap center gap={10} marginTop={20}>
+      </Stack>
+      <Stack alignItems="center" gap={10} mt={20}>
         <TextComponent
           align="center"
           variant="subtitle"
@@ -71,7 +71,7 @@ const SignupScreen: React.FC = () => {
           fontSize={11}
           onPressHighlight={onPressLogin}
         />
-      </ViewWithGap>
+      </Stack>
     </CardWithHeader>
   );
 };

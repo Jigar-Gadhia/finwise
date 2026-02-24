@@ -1,5 +1,5 @@
 import React, {Fragment, useState} from 'react';
-import {FlatList, StyleSheet, View} from 'react-native';
+import {FlatList, StyleSheet} from 'react-native';
 import Container from '../../components/Container';
 import {screenNames} from '../../utils/screenNames';
 import DashboardCounts from '../../components/DashboardCounts';
@@ -18,6 +18,7 @@ import {fontScale} from '../../theme/fontScale';
 import {setTransaction} from '../../store/slices/transactionSlice';
 import {navigate} from '../../utils/navigationService';
 import {useDispatch} from 'react-redux';
+import Stack from '../../components/Stack';
 
 const renderItem = ({
   item,
@@ -49,7 +50,10 @@ const CategoriesScreen: React.FC = () => {
   return (
     <Fragment>
       <AppModal visible={showModal} onClose={onPressMore}>
-        <View
+        <Stack
+          ph={20}
+          pv={30}
+          gap={15}
           style={[
             styles.newCategoryContainer,
             {backgroundColor: colors.background},
@@ -74,7 +78,7 @@ const CategoriesScreen: React.FC = () => {
             title={t(strings.common.cancel)}
             onPress={onPressMore}
           />
-        </View>
+        </Stack>
       </AppModal>
       <Container screenName={screenNames.Categories}>
         <DashboardCounts />
@@ -107,11 +111,7 @@ const styles = StyleSheet.create({
     gap: scale(25),
   },
   newCategoryContainer: {
-    paddingHorizontal: scale(20),
-    paddingVertical: scale(30),
-    borderRadius: scale(20),
     width: '80%',
-    gap: scale(15),
   },
   buttonStyle: {
     alignSelf: 'center',

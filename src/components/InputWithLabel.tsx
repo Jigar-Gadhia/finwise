@@ -13,6 +13,7 @@ import {LightColors} from '../theme/colors';
 import {fontScale} from '../theme/fontScale';
 import {useAppTheme} from '../theme/ThemeContext';
 import {fonts} from '../theme/fonts';
+import Stack from './Stack';
 
 interface InputWithLabelProps {
   label?: string;
@@ -24,8 +25,9 @@ interface InputWithLabelProps {
   isDate?: boolean;
   isDropDown?: boolean;
   value?: string;
-  marginTop?: ViewStyle['marginTop'];
+  marginTop?: number;
   labelInputGap?: ViewStyle['gap'];
+  bRadius?: number;
 }
 
 const InputWithLabel: React.FC<InputWithLabelProps> = ({
@@ -40,8 +42,10 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({
   value = '',
   marginTop,
   labelInputGap = 5,
+  bRadius = 18,
 }) => {
   const [secureText, setSecureText] = useState(password);
+  const [texts, setTexts] = useState(value);
   const {colors} = useAppTheme();
   const onPressEyeIcon = () => {
     setSecureText(prev => !prev);
@@ -52,19 +56,24 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({
         <TextComponent
           variant="subtitle"
           disableLineHeight
-          style={[styles.titleStyle, leftMargin && {marginLeft: scale(10)}]}>
+          fontSize={15}
+          style={[leftMargin && {marginLeft: scale(10)}]}>
           {label}
         </TextComponent>
       )}
-      <View
+      <Stack
+        row
+        justifyContent="space-between"
+        alignItems={multiLine ? 'flex-start' : 'center'}
+        ph={10}
+        pt={multiLine ? 5 : undefined}
+        pl={lessMargin ? 15 : 22}
+        mt={marginTop}
         style={[
           styles.intputContainer,
           {
-            paddingLeft: lessMargin ? scale(15) : scale(30),
-            height: multiLine ? scale(130) : scale(36),
-            alignItems: multiLine ? 'flex-start' : 'center',
-            paddingTop: multiLine ? scale(5) : undefined,
-            marginTop,
+            height: multiLine ? scale(130) : scale(28),
+            borderRadius: scale(bRadius),
           },
         ]}>
         <TextInput
@@ -73,14 +82,19 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({
           secureTextEntry={secureText}
           placeholderTextColor={colors.placeholder}
           multiline={multiLine}
-          value={value}
+          value={texts}
+          onChangeText={setTexts}
         />
         {password && (
           <TouchableOpacity
             onPress={onPressEyeIcon}
             hitSlop={10}
             activeOpacity={0.8}>
-            <IconComponent Icon="eye" width={24.14} height={9} />
+            <IconComponent
+              Icon={secureText ? 'eyeClosed' : 'eyeOpen'}
+              width={24.14}
+              height={9}
+            />
           </TouchableOpacity>
         )}
         {isDate && (
@@ -101,7 +115,7 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({
             />
           </TouchableOpacity>
         )}
-      </View>
+      </Stack>
     </View>
   );
 };
@@ -110,21 +124,16 @@ const styles = StyleSheet.create({
   container: {
     gap: scale(5),
   },
-  titleStyle: {
-    fontSize: fontScale(15),
-  },
   intputContainer: {
-    paddingHorizontal: scale(10),
     backgroundColor: LightColors.divider,
-    borderRadius: scale(18),
-    flexDirection: 'row',
-    justifyContent: 'space-between',
   },
   inputStyle: {
     flex: 1,
     color: LightColors.text,
     fontSize: fontScale(14),
     fontFamily: fonts.medium,
+    margin: 0,
+    padding: 0,
   },
   dropdownStyle: {
     marginRight: scale(5),

@@ -1,10 +1,11 @@
 import React from 'react';
-import {View, StyleSheet, TouchableOpacity} from 'react-native';
+import {StyleSheet, TouchableOpacity} from 'react-native';
 import {categoriesType} from '../utils/categoriesData';
 import IconComponent from './IconComponent';
 import TextComponent from './TextComponent';
 import {useAppTheme} from '../theme/ThemeContext';
 import {scale} from 'react-native-size-matters';
+import Stack from './Stack';
 
 interface CategoryItemProps {
   item: categoriesType;
@@ -24,7 +25,8 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
       activeOpacity={0.8}
       style={styles.itemContainer}
       onPress={onPress}>
-      <View
+      <Stack
+        p={18}
         style={[
           styles.iconContainer,
           {
@@ -32,8 +34,13 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
               item.name === activeItem ? colors.oceanBlue : colors.lightBlue,
           },
         ]}>
-        <IconComponent Icon={item.icon} height={44} width={44} />
-      </View>
+        <IconComponent
+          Icon={item.icon}
+          height={44}
+          width={44}
+          color="staticWhite"
+        />
+      </Stack>
       <TextComponent variant="subtitle" capitalised>
         {item.name}
       </TextComponent>
@@ -47,7 +54,6 @@ const styles = StyleSheet.create({
     gap: scale(3),
   },
   iconContainer: {
-    padding: scale(18),
     borderRadius: scale(20),
   },
 });

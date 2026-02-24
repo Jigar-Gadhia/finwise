@@ -4,7 +4,7 @@ import CardWithHeader from '../../components/CardWithHeader';
 import {t} from '../../localization/t';
 import {strings} from '../../localization';
 import {scale} from 'react-native-size-matters';
-import ViewWithGap from '../../components/ViewWithGap';
+import Stack from '../../components/Stack';
 import TextComponent from '../../components/TextComponent';
 import InputWithLabel from '../../components/InputWithLabel';
 import ButtonComponent from '../../components/ButtonComponent';
@@ -24,15 +24,15 @@ const ForgotPasswordScreen: React.FC = () => {
     <CardWithHeader
       headerText={t(strings.common.forgotPasswordHeader)}
       cardStyle={styles.cardContainer}>
-      <ViewWithGap gap={10}>
+      <Stack gap={10}>
         <TextComponent variant="title" color="title">
           {t(strings.common.resetPassword)}
         </TextComponent>
         <TextComponent variant="subtext">
           {t(strings.common.resetPasswordText)}
         </TextComponent>
-      </ViewWithGap>
-      <ViewWithGap gap={35} marginTop={60}>
+      </Stack>
+      <Stack gap={35} mt={60}>
         <InputWithLabel
           leftMargin={false}
           label={t(strings.common.emailText)}
@@ -43,14 +43,14 @@ const ForgotPasswordScreen: React.FC = () => {
           buttonStyle={styles.buttonStyle}
           onPress={onPressNextStep}
         />
-      </ViewWithGap>
-      <ViewWithGap marginTop={110}>
+      </Stack>
+      <Stack mt={110}>
         <ButtonComponent
           title={t(strings.common.signUp)}
           buttonStyle={styles.buttonStyle}
           bgColor="divider"
         />
-        <ViewWithGap marginTop={40} center gap={18}>
+        <Stack mt={40} alignItems="center" gap={18}>
           <SocialMediaButtons />
           <HighlightTextComponent
             variant="paragraph"
@@ -59,8 +59,8 @@ const ForgotPasswordScreen: React.FC = () => {
             fontSize={11}
             onPressHighlight={onPressSignup}
           />
-        </ViewWithGap>
-      </ViewWithGap>
+        </Stack>
+      </Stack>
     </CardWithHeader>
   );
 };

@@ -48,7 +48,8 @@ const FilterComponent: React.FC<FilterComponentProps> = ({
               ]}
               onPress={() => onFilterChange(item.name)}>
               <TextComponent
-                style={styles.textStyle}
+                fontSize={15}
+                capitalised
                 color={currentFilter === item.name ? 'staticBlack' : 'text'}
                 disableLineHeight
                 weight="regular">
@@ -76,10 +77,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: scale(19),
-  },
-  textStyle: {
-    fontSize: scale(15),
-    textTransform: 'capitalize',
   },
 });
 

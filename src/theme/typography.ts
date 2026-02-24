@@ -1,12 +1,12 @@
 export const typography = {
   title: {
-    fontSize: 18,
+    fontSize: 20,
     lineHeight: 22,
     weight: 'semibold',
   },
   subtitle: {
-    fontSize: 14,
-    lineHeight: 20,
+    fontSize: 15,
+    lineHeight: undefined,
     weight: 'medium',
   },
   paragraph: {
@@ -14,14 +14,9 @@ export const typography = {
     lineHeight: 15,
     weight: 'regular',
   },
-  subParagrph: {
-    fontSize: 12,
-    lineHeight: 14,
-    weight: 'regular',
-  },
   subtext: {
-    fontSize: 12,
-    lineHeight: 13,
+    fontSize: 14,
+    lineHeight: undefined,
     weight: 'regular',
   },
 } as const;

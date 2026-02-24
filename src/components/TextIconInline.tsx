@@ -1,10 +1,10 @@
 import React from 'react';
-import {View, StyleSheet, ViewStyle, TextStyle} from 'react-native';
-import {fontScale} from '../theme/fontScale';
+import {StyleSheet, ViewStyle, TextStyle} from 'react-native';
 import {scale} from 'react-native-size-matters';
 import TextComponent from './TextComponent';
 import {IconName} from '../utils/transactionData';
 import IconComponent from './IconComponent';
+import Stack from './Stack';
 
 interface TextIconInlineProps {
   text: string;
@@ -24,7 +24,7 @@ const TextIconInline: React.FC<TextIconInlineProps> = ({
   flip = false,
 }) => {
   return (
-    <View style={[styles.container, style]}>
+    <Stack style={style} alignItems="center" row gap={4}>
       {iconEnabled && (
         <IconComponent
           Icon={Icon}
@@ -37,24 +37,17 @@ const TextIconInline: React.FC<TextIconInlineProps> = ({
       <TextComponent
         variant="subtitle"
         disableLineHeight
-        style={[styles.text, textStyle]}>
+        style={textStyle}
+        fontSize={12}>
         {text}
       </TextComponent>
-    </View>
+    </Stack>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: scale(4),
-  },
   textContainer: {
     marginLeft: scale(8),
-  },
-  text: {
-    fontSize: fontScale(12),
   },
   flipStyle: {
     transform: [{rotate: '-90deg'}],

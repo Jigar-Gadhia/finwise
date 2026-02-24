@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, StyleProp, ViewStyle} from 'react-native';
+import {StyleSheet, StyleProp, ViewStyle} from 'react-native';
 import CircularProgress from './CircularProgress';
 import {t} from '../localization/t';
 import {strings} from '../localization';
@@ -7,6 +7,7 @@ import TextComponent from './TextComponent';
 import {useAppTheme} from '../theme/ThemeContext';
 import {scale} from 'react-native-size-matters';
 import {icons} from '../utils/icons';
+import Stack from './Stack';
 
 interface CircularProgressWithTextProps {
   progressText?: number;
@@ -27,7 +28,12 @@ const CircularProgressWithText: React.FC<CircularProgressWithTextProps> = ({
 }) => {
   const {colors} = useAppTheme();
   return (
-    <View
+    <Stack
+      pt={14}
+      ph={22}
+      pb={5}
+      gap={8}
+      alignItems="center"
       style={[
         styles.progressBox,
         containerStyle,
@@ -41,30 +47,26 @@ const CircularProgressWithText: React.FC<CircularProgressWithTextProps> = ({
         Icon={icon}
         bgColor={'amountPositive'}
         pgColor={'oceanBlue'}
-        textColor={'text'}
+        textColor={'staticWhite'}
         textSize={20}
         iconHeight={iconSize}
         iconWidth={iconSize}
+        iconColor="staticWhite"
       />
       <TextComponent
         capitalised
         variant="subtitle"
         disableLineHeight
-        color="text">
+        color="staticWhite">
         {label}
       </TextComponent>
-    </View>
+    </Stack>
   );
 };
 
 const styles = StyleSheet.create({
   progressBox: {
-    paddingTop: scale(14),
-    paddingHorizontal: scale(22),
-    paddingBottom: scale(5),
     borderRadius: scale(50),
-    alignItems: 'center',
-    gap: scale(8),
   },
 });
 

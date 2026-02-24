@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, ScrollView, StyleSheet} from 'react-native';
+import {ScrollView} from 'react-native';
 import {
   Canvas,
   Line,
@@ -13,6 +13,7 @@ import {
 import {scale} from 'react-native-size-matters';
 import {LightColors} from '../theme/colors';
 import {filterTypes} from '../utils/filterData';
+import Stack from './Stack';
 
 const GREEN = LightColors.caribbeanGreen;
 const BLUE = LightColors.oceanBlue;
@@ -74,7 +75,7 @@ const SkiaBarChart = ({data, height = scale(150), filter}: Props) => {
   }
 
   return (
-    <View style={styles.container}>
+    <Stack row>
       {/* ✅ FIXED Y AXIS */}
       <Canvas style={{width: scale(40), height}}>
         {sections.map((sectionValue, index) => {
@@ -183,14 +184,8 @@ const SkiaBarChart = ({data, height = scale(150), filter}: Props) => {
           />
         </Canvas>
       </ScrollView>
-    </View>
+    </Stack>
   );
 };
 
 export default SkiaBarChart;
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-  },
-});

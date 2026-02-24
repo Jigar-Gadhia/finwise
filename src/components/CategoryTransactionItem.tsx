@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {icons} from '../utils/icons';
 import {useAppTheme} from '../theme/ThemeContext';
 import TextComponent from './TextComponent';
@@ -10,6 +10,7 @@ import {priceFormat} from '../utils/utils';
 import IconComponent from './IconComponent';
 import {scale} from 'react-native-size-matters';
 import {fontScale} from '../theme/fontScale';
+import Stack from './Stack';
 
 interface CategoryTransactionItemProps {
   amount: number;
@@ -26,9 +27,10 @@ const CategoryTransactionItem: React.FC<CategoryTransactionItemProps> = ({
 }) => {
   const {colors} = useAppTheme();
   return (
-    <View style={styles.container}>
-      <View style={styles.iconLableContainer}>
-        <View
+    <Stack alignItems="center" row justifyContent="space-between">
+      <Stack row alignItems="center" gap={10}>
+        <Stack
+          p={10}
           style={[
             styles.iconContainer,
             {
@@ -41,8 +43,8 @@ const CategoryTransactionItem: React.FC<CategoryTransactionItemProps> = ({
             width={26}
             color="staticWhite"
           />
-        </View>
-        <View>
+        </Stack>
+        <Stack>
           <TextComponent variant="subtitle" capitalised>
             {name}
           </TextComponent>
@@ -53,40 +55,25 @@ const CategoryTransactionItem: React.FC<CategoryTransactionItemProps> = ({
             color="vividBlue">
             {moment(timestamp).format('HH:MM - MMM DD')}
           </TextComponent>
-        </View>
-      </View>
-      <View style={styles.amountStyle}>
+        </Stack>
+      </Stack>
+      <Stack>
         <TextComponent variant="subtitle">
           {t(strings.common.negativeAmount, {
             amount: priceFormat().format(amount),
           })}
         </TextComponent>
-      </View>
-    </View>
+      </Stack>
+    </Stack>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  iconLableContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: scale(10),
-  },
   iconContainer: {
-    padding: scale(10),
     borderRadius: scale(18),
   },
   dateStyle: {
     fontSize: fontScale(12),
-  },
-  amountStyle: {
-    width: scale(70),
-    alignItems: 'flex-end',
   },
 });
 

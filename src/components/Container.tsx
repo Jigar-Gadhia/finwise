@@ -1,6 +1,6 @@
 import {StatusBar, StyleSheet, ViewStyle} from 'react-native';
 import React, {ReactNode} from 'react';
-import {useIsFocused, useTheme} from '@react-navigation/native';
+import {useIsFocused} from '@react-navigation/native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import ScreenHeader from './ScreenHeader';
 import {t} from '../localization/t';
@@ -8,6 +8,9 @@ import {strings} from '../localization';
 import Animated from 'react-native-reanimated';
 import {useFadeAnimation} from '../hooks/useFadeAnimation';
 import {useScaleAnimation} from '../hooks/useScaleAnimation';
+import {useSelector} from 'react-redux';
+import {RootState} from '../store/store';
+import {useAppTheme} from '../theme/ThemeContext';
 
 type ContainerProps = {
   children: ReactNode;
@@ -16,7 +19,7 @@ type ContainerProps = {
   screenName?: string;
   showNoti?: boolean;
   showHeader?: boolean;
-  bgColor?: keyof ReturnType<typeof useTheme>['colors'];
+  bgColor?: keyof ReturnType<typeof useAppTheme>['colors'];
 };
 
 const Container: React.FC<ContainerProps> = ({
@@ -28,7 +31,8 @@ const Container: React.FC<ContainerProps> = ({
   showHeader = true,
   bgColor = 'background',
 }) => {
-  const {colors, dark} = useTheme();
+  const {colors} = useAppTheme();
+  const {mode} = useSelector((state: RootState) => state.theme);
   const focused = useIsFocused();
 
   const animatedStyle = [useFadeAnimation(focused), useScaleAnimation(focused)];
@@ -37,7 +41,7 @@ const Container: React.FC<ContainerProps> = ({
     <Animated.View style={[styles.container, animatedStyle]}>
       <StatusBar
         backgroundColor={colors[bgColor]}
-        barStyle={dark ? 'light-content' : 'dark-content'}
+        barStyle={mode === 'dark' ? 'light-content' : 'dark-content'}
       />
       <SafeAreaView
         edges={['top']}

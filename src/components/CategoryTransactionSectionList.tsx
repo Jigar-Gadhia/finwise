@@ -1,10 +1,11 @@
 import moment from 'moment';
 import React, {memo, useMemo} from 'react';
-import {View, StyleSheet, SectionList, Platform} from 'react-native';
+import {StyleSheet, SectionList, Platform} from 'react-native';
 import {categoriesType} from '../utils/categoriesData';
 import CategoryTransactionItem from './CategoryTransactionItem';
 import TextComponent from './TextComponent';
 import {scale} from 'react-native-size-matters';
+import Stack from './Stack';
 
 interface Transaction {
   id: string;
@@ -61,7 +62,7 @@ const CategoryTransactionSectionList: React.FC<
   }, []);
 
   return (
-    <View>
+    <Stack>
       <SectionList
         sections={sections}
         keyExtractor={item => item.id}
@@ -86,7 +87,7 @@ const CategoryTransactionSectionList: React.FC<
         windowSize={10}
         removeClippedSubviews
       />
-    </View>
+    </Stack>
   );
 };
 

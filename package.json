@@ -29,6 +29,7 @@
     "react-native-size-matters": "^0.4.2",
     "react-native-svg": "14.1.0",
     "react-native-svg-transformer": "1.5.2",
+    "react-native-theme-switch-animation": "^0.8.0",
     "react-redux": "^9.2.0",
     "redux-persist": "^6.0.0"
   },
