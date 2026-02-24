@@ -54,11 +54,10 @@ const styles = StyleSheet.create({
   progressBar: {
     position: 'absolute',
     width: '90%',
-    right: 0,
+    right: scale(-1),
     alignItems: 'flex-end',
-    height: scale(27),
+    height: scale(28),
     borderRadius: scale(13.5),
-    top: scale(-1.1),
     justifyContent: 'center',
     paddingRight: scale(10),
   },

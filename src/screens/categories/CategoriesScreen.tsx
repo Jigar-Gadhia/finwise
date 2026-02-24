@@ -56,7 +56,10 @@ const CategoriesScreen: React.FC = () => {
           gap={15}
           style={[
             styles.newCategoryContainer,
-            {backgroundColor: colors.background},
+            {
+              backgroundColor: colors.welcomeBg,
+              shadowColor: colors.caribbeanGreen,
+            },
           ]}>
           <TextComponent variant="title" align="center" disableLineHeight>
             {t(strings.common.newCat)}
@@ -73,7 +76,7 @@ const CategoriesScreen: React.FC = () => {
           />
           <ButtonComponent
             titleStyle={styles.buttonTitleStyle}
-            bgColor="amountPositive"
+            bgColor="divider"
             buttonStyle={styles.buttonStyle}
             title={t(strings.common.cancel)}
             onPress={onPressMore}
@@ -111,7 +114,15 @@ const styles = StyleSheet.create({
     gap: scale(25),
   },
   newCategoryContainer: {
-    width: '80%',
+    width: '85%',
+    borderRadius: scale(20),
+    // shadowOffset: {
+    //   width: 4,
+    //   height: 4,
+    // },
+    // shadowOpacity: 0.6,
+    // shadowRadius: 10,
+    // elevation: 6,
   },
   buttonStyle: {
     alignSelf: 'center',

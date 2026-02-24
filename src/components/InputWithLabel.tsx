@@ -72,7 +72,7 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({
         style={[
           styles.intputContainer,
           {
-            height: multiLine ? scale(130) : scale(28),
+            height: multiLine ? scale(130) : scale(32),
             borderRadius: scale(bRadius),
           },
         ]}>
@@ -99,7 +99,7 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({
         )}
         {isDate && (
           <TouchableOpacity hitSlop={10} activeOpacity={0.8}>
-            <IconComponent Icon="calender" width={23} height={23} />
+            <IconComponent Icon="calender" width={22} height={22} />
           </TouchableOpacity>
         )}
         {isDropDown && (
@@ -129,9 +129,13 @@ const styles = StyleSheet.create({
   },
   inputStyle: {
     flex: 1,
+    height: '100%',
     color: LightColors.text,
     fontSize: fontScale(14),
     fontFamily: fonts.medium,
+    paddingVertical: 0,
+    includeFontPadding: false,
+    textAlignVertical: 'center',
     margin: 0,
     padding: 0,
   },

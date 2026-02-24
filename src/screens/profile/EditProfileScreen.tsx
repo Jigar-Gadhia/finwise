@@ -74,7 +74,7 @@ const EditProfileScreen: React.FC = () => {
             placeholder={t(strings.common.emailPlaceholder)}
           />
         </Stack>
-        <Stack gap={20} mt={8}>
+        <Stack gap={20} mt={2}>
           <SwitchComponent
             value={isPushNoti}
             onPress={handlePressPushNoti}
