@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, TouchableOpacity} from 'react-native';
 import IconComponent from './IconComponent';
 import {icons} from '../utils/icons';
 import {LightColors} from '../theme/colors';
@@ -61,9 +61,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
                 width={31}
               />
             )
-          ) : (
-            <View />
-          )}
+          ) : null}
           <TextComponent variant="subtitle" fontSize={15} disableLineHeight>
             {title}
           </TextComponent>
