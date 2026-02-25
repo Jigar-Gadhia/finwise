@@ -28,7 +28,7 @@ const ProfilePicture: React.FC<ProfilePictureProps> = ({
           style={styles.iconStyle}
         />
       )}
-      <IconComponent Icon="profilePlaceholer" height={100} width={100} />
+      <IconComponent Icon="profilePlaceholer" height={90} width={90} />
       <Stack>
         <TextComponent variant="title" weight="bold">
           {t(strings.common.profileName)}
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   iconStyle: {
     position: 'absolute',
     zIndex: 2,
-    top: scale(75),
+    top: scale(66),
     right: scale(132),
   },
 });

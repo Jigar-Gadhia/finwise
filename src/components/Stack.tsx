@@ -82,6 +82,7 @@ const Stack: React.FC<StackProps> = ({
     flex,
     width: fullWidth ? '100%' : undefined,
     height: fullHeight ? '100%' : undefined,
+    flexShrink: 1,
 
     // ✅ Margin resolution (NEW PRIORITY ORDER)
 

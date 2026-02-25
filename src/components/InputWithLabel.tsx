@@ -126,6 +126,7 @@ const styles = StyleSheet.create({
   },
   intputContainer: {
     backgroundColor: LightColors.divider,
+    width: '100%',
   },
   inputStyle: {
     flex: 1,

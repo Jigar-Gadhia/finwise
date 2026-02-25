@@ -10,12 +10,13 @@ type Variant = keyof typeof typography;
 type Props = TextProps & {
   variant?: Variant;
   color?: keyof ReturnType<typeof useAppTheme>['colors'];
-  align?: 'left' | 'center' | 'right';
+  align?: 'left' | 'center' | 'right' | 'justify';
   weight?: FontWeight;
   fontSize?: number;
   lineHeight?: number;
   disableLineHeight?: boolean;
   capitalised?: boolean;
+  underLine?: boolean;
 };
 
 const LINE_HEIGHT_RATIO = 1.45;
@@ -29,6 +30,7 @@ const TextComponent: React.FC<Props> = ({
   lineHeight,
   disableLineHeight = false,
   capitalised = false,
+  underLine = false,
   style,
   children,
   ...rest
@@ -55,6 +57,7 @@ const TextComponent: React.FC<Props> = ({
           color: colors[color],
           textAlign: align,
           textTransform: capitalised ? 'capitalize' : 'none',
+          textDecorationLine: underLine ? 'underline' : 'none',
         },
         style,
       ]}>

@@ -27,7 +27,7 @@ const FingerprintScreen: React.FC = () => {
           </TextComponent>
           <TextComponent
             align="center"
-            style={styles.textStyle}
+            fontSize={10}
             variant="subtitle"
             lineHeight={16}
             capitalised>
@@ -41,10 +41,7 @@ const FingerprintScreen: React.FC = () => {
             bgColor="divider"
             onPress={onPressTouchId}
           />
-          <TextComponent
-            align="center"
-            variant="paragraph"
-            style={styles.pinTextStyle}>
+          <TextComponent align="center" variant="paragraph" fontSize={10}>
             {t(strings.common.touchIdText)}
           </TextComponent>
         </Stack>
@@ -57,12 +54,6 @@ const styles = StyleSheet.create({
   cardContainer: {
     paddingHorizontal: scale(25),
     paddingTop: scale(80),
-  },
-  textStyle: {
-    fontSize: scale(10),
-  },
-  pinTextStyle: {
-    fontSize: scale(10),
   },
 });
 

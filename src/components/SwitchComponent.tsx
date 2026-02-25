@@ -69,7 +69,7 @@ const SwitchComponent: React.FC<SwitchProps> = ({
   });
 
   return (
-    <Stack row justifyContent="space-between">
+    <Stack row justifyContent="space-between" alignItems="center">
       <TextComponent capitalised variant="subtitle">
         {title}
       </TextComponent>

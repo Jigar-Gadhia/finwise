@@ -11,8 +11,8 @@ import ProfilePicture from '../../components/ProfilePicture';
 import {navigate} from '../../utils/navigationService';
 
 const ProfileScreen: React.FC = () => {
-  const onPressEditProfile = () => {
-    navigate(screenNames.EditProfileScreen);
+  const onPress = (screenName: keyof typeof screenNames) => {
+    navigate(screenName);
   };
 
   return (
@@ -23,17 +23,19 @@ const ProfileScreen: React.FC = () => {
           title={t(strings.profile.editProfile)}
           icon="profile"
           color="lightBlue"
-          onPress={onPressEditProfile}
+          onPress={() => onPress('EditProfileScreen')}
         />
         <ProfileCard
           title={t(strings.profile.security)}
           icon="security"
           color="vividBlue"
+          onPress={() => onPress('SecurityScreen')}
         />
         <ProfileCard
           title={t(strings.profile.setting)}
           icon="settings"
           color="oceanBlue"
+          onPress={() => onPress('SettingScreen')}
         />
         <ProfileCard
           title={t(strings.profile.help)}
@@ -55,10 +57,10 @@ const topValue = scale(45);
 const styles = StyleSheet.create({
   cardStyle: {
     marginTop: topValue,
-  },
-  scrollStyle: {
     paddingTop: scale(140),
     paddingHorizontal: scale(30),
+  },
+  scrollStyle: {
     gap: scale(20),
   },
 });

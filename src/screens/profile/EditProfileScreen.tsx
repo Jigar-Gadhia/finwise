@@ -72,7 +72,7 @@ const EditProfileScreen: React.FC = () => {
             placeholder={t(strings.common.emailPlaceholder)}
           />
         </Stack>
-        <Stack gap={20} mt={2}>
+        <Stack gap={20} mt={8}>
           <SwitchComponent
             value={isPushNoti}
             onPress={handlePressPushNoti}
@@ -96,12 +96,12 @@ const EditProfileScreen: React.FC = () => {
   );
 };
 
-const topValue = scale(45);
+const topValue = scale(40);
 
 const styles = StyleSheet.create({
   cardStyle: {
     marginTop: topValue,
-    paddingTop: scale(120),
+    paddingTop: scale(130),
     paddingHorizontal: scale(30),
   },
   scrollStyle: {

@@ -4,7 +4,7 @@ import {useAppTheme} from '../theme/ThemeContext';
 import {scale} from 'react-native-size-matters';
 
 interface ColumnDeviderProps {
-  color: keyof ReturnType<typeof useAppTheme>['colors'];
+  color?: keyof ReturnType<typeof useAppTheme>['colors'];
   style?: ViewStyle;
 }
 

@@ -48,6 +48,11 @@ import Help from '../assets/icons/profile/help.svg';
 import Settings from '../assets/icons/profile/settings.svg';
 import Logout from '../assets/icons/profile/logout.svg';
 import Camera from '../assets/icons/profile/camera.svg';
+import RightArrow from '../assets/icons/profile/rightArrow.svg';
+import ProfileFingerprint from '../assets/icons/profile/profileFingerprint.svg';
+import Password from '../assets/icons/profile/password.svg';
+import Account from '../assets/icons/profile/account.svg';
+import Notification from '../assets/icons/profile/notification.svg';
 
 export const icons = {
   home: Home,
@@ -100,4 +105,9 @@ export const icons = {
   settings: Settings,
   logout: Logout,
   camera: Camera,
+  rightArrow: RightArrow,
+  profileFin: ProfileFingerprint,
+  password: Password,
+  account: Account,
+  noti: Notification,
 };
