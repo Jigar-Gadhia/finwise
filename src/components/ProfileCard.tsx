@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, TouchableOpacity} from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import IconComponent from './IconComponent';
 import {icons} from '../utils/icons';
 import {LightColors} from '../theme/colors';
@@ -38,24 +38,31 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
       onPress={onPress}>
       <Stack row justifyContent="space-between" alignItems="center">
         <Stack row alignItems="center" gap={12}>
-          {showIcon && showBG ? (
-            <Stack
-              p={10}
-              style={[styles.iconContainer, {backgroundColor: colors[color]}]}>
+          {showIcon ? (
+            showBG ? (
+              <Stack
+                p={10}
+                style={[
+                  styles.iconContainer,
+                  {backgroundColor: colors[color]},
+                ]}>
+                <IconComponent
+                  Icon={icon}
+                  color="staticWhite"
+                  height={24}
+                  width={24}
+                />
+              </Stack>
+            ) : (
               <IconComponent
                 Icon={icon}
                 color="staticWhite"
-                height={24}
-                width={24}
+                height={31}
+                width={31}
               />
-            </Stack>
+            )
           ) : (
-            <IconComponent
-              Icon={icon}
-              color="staticWhite"
-              height={31}
-              width={31}
-            />
+            <View />
           )}
           <TextComponent variant="subtitle" fontSize={15} disableLineHeight>
             {title}

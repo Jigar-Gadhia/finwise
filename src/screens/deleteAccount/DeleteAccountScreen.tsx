@@ -84,9 +84,10 @@ const DeleteAccountScreen: React.FC = () => {
       <AppModal visible={showModal} onClose={onClose}>
         <Stack
           ph={20}
-          pv={30}
+          pv={40}
           gap={30}
           style={[
+            styles.modalContainer,
             {
               backgroundColor: colors.welcomeBg,
             },
@@ -132,6 +133,10 @@ const styles = StyleSheet.create({
   },
   buttonStyle: {
     width: scale(218),
+  },
+  modalContainer: {
+    width: scale(300),
+    borderRadius: scale(20),
   },
 });
 
