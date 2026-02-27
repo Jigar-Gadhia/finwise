@@ -10,11 +10,11 @@ import FilterComponent from '../../components/FilterComponent';
 import TransactionComponent from '../../components/TransactionComponent';
 import {screenNames} from '../../utils/screenNames';
 import {navigate} from '../../utils/navigationService';
-import {filters, filterTypes} from '../../utils/filterData';
+import {filters} from '../../utils/filterData';
 
 const HomeScreen = () => {
   const {colors} = useAppTheme();
-  const [currentFilter, setCurrentFilter] = useState<filterTypes | undefined>(
+  const [currentFilter, setCurrentFilter] = useState<string | undefined>(
     filters[0].name,
   );
 
@@ -22,7 +22,7 @@ const HomeScreen = () => {
     navigate(screenNames.QuicklyAnalysisScreen);
   };
 
-  const onChangeFilter = (filter: filterTypes) => {
+  const onChangeFilter = (filter: string) => {
     setCurrentFilter(filter);
   };
 
@@ -38,6 +38,7 @@ const HomeScreen = () => {
           <ExpenseComponent iconColor="staticBlack" textColor="staticBlack" />
         </TouchableOpacity>
         <FilterComponent
+          filters={filters.filter(item => item.name !== 'yearly')}
           currentFilter={currentFilter}
           onFilterChange={onChangeFilter}
           yearlyEnabled={false}

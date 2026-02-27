@@ -10,7 +10,6 @@ import IconComponent from './IconComponent';
 import TextComponent from './TextComponent';
 import {scale} from 'react-native-size-matters';
 import {LightColors} from '../theme/colors';
-import {fontScale} from '../theme/fontScale';
 import {useAppTheme} from '../theme/ThemeContext';
 import {fonts} from '../theme/fonts';
 import Stack from './Stack';
@@ -28,6 +27,8 @@ interface InputWithLabelProps {
   marginTop?: number;
   labelInputGap?: ViewStyle['gap'];
   bRadius?: number;
+  containerStyle?: ViewStyle;
+  fontSize?: number;
 }
 
 const InputWithLabel: React.FC<InputWithLabelProps> = ({
@@ -43,6 +44,8 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({
   marginTop,
   labelInputGap = 5,
   bRadius = 18,
+  containerStyle,
+  fontSize = 14,
 }) => {
   const [secureText, setSecureText] = useState(password);
   const [texts, setTexts] = useState(value);
@@ -75,10 +78,11 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({
             height: multiLine ? scale(130) : scale(32),
             borderRadius: scale(bRadius),
           },
+          containerStyle,
         ]}>
         <TextInput
           placeholder={placeholder}
-          style={styles.inputStyle}
+          style={[styles.inputStyle, {fontSize: scale(fontSize)}]}
           secureTextEntry={secureText}
           placeholderTextColor={colors.placeholder}
           multiline={multiLine}
@@ -132,7 +136,6 @@ const styles = StyleSheet.create({
     flex: 1,
     height: '100%',
     color: LightColors.text,
-    fontSize: fontScale(14),
     fontFamily: fonts.medium,
     paddingVertical: 0,
     includeFontPadding: false,

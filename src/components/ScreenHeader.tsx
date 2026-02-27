@@ -12,12 +12,14 @@ interface ScreenHeaderProps {
   name?: string;
   home?: boolean;
   showNoti?: boolean;
+  titleCapitalised?: boolean;
 }
 
 const ScreenHeader: React.FC<ScreenHeaderProps> = ({
   name,
   home = false,
   showNoti = false,
+  titleCapitalised = true,
 }) => {
   const onPressNotificationIcon = () => {
     navigate(screenNames.NotificationsScreen);
@@ -40,14 +42,14 @@ const ScreenHeader: React.FC<ScreenHeaderProps> = ({
           </Stack>
         ) : (
           <React.Fragment>
-            <TouchableOpacity onPress={goBack}>
+            <TouchableOpacity onPress={goBack} hitSlop={10}>
               <IconComponent Icon="backArrow" height={18} width={18} />
             </TouchableOpacity>
             <TextComponent
               variant="title"
               color="screenTitle"
               disableLineHeight
-              capitalised>
+              capitalised={titleCapitalised}>
               {name}
             </TextComponent>
           </React.Fragment>

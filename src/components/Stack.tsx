@@ -1,8 +1,8 @@
 import React from 'react';
-import {View, StyleSheet, ViewStyle, StyleProp} from 'react-native';
+import {View, StyleSheet, ViewStyle, StyleProp, ViewProps} from 'react-native';
 import {scale} from 'react-native-size-matters';
 
-interface StackProps {
+interface StackProps extends ViewProps {
   children: React.ReactNode;
 
   gap?: number;
@@ -72,6 +72,7 @@ const Stack: React.FC<StackProps> = ({
   pr,
 
   style,
+  ...props
 }) => {
   const dynamicStyle: ViewStyle = {
     gap: scale(gap),
@@ -178,7 +179,9 @@ const Stack: React.FC<StackProps> = ({
   };
 
   return (
-    <View style={[styles.base, row && styles.row, dynamicStyle, style]}>
+    <View
+      style={[styles.base, row && styles.row, dynamicStyle, style]}
+      {...props}>
       {children}
     </View>
   );

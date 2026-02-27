@@ -14,6 +14,9 @@ import SettingScreen from '../setting/SettingScreen';
 import NotificationSettings from '../notificationSettings/NotificationSettings';
 import PasswordSettings from '../passwordSettings/PasswordSettings';
 import DeleteAccountScreen from '../deleteAccount/DeleteAccountScreen';
+import HelpScreen from '../help/HelpScreen';
+import OnlineSupportScreen from '../onlineSupport/OnlineSupportScreen';
+import ChatScreen from '../chat/ChatScreen';
 
 const Profile = () => {
   const Stack = createNativeStackNavigator();
@@ -64,6 +67,12 @@ const Profile = () => {
         name={screenNames.DeleteAccountScreen}
         component={DeleteAccountScreen}
       />
+      <Stack.Screen name={screenNames.HelpScreen} component={HelpScreen} />
+      <Stack.Screen
+        name={screenNames.OnlineSupportScreen}
+        component={OnlineSupportScreen}
+      />
+      <Stack.Screen name={screenNames.ChatScreen} component={ChatScreen} />
       <Stack.Screen
         name={screenNames.NotificationsScreen}
         component={NotificationsScreen}

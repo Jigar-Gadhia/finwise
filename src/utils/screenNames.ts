@@ -36,4 +36,7 @@ export const screenNames = {
   NotificationSettings: 'NotificationSettings',
   PasswordSettings: 'PasswordSettings',
   DeleteAccountScreen: 'DeleteAccountScreen',
+  HelpScreen: 'HelpScreen',
+  OnlineSupportScreen: 'OnlineSupportScreen',
+  ChatScreen: 'ChatScreen',
 };

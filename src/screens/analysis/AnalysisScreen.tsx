@@ -10,18 +10,14 @@ import {scale} from 'react-native-size-matters';
 import ExpenseBarChart from '../../components/ExpenseBarChart';
 import TextComponent from '../../components/TextComponent';
 import ExpenseIncomeComponent from '../../components/ExpenseIncomeComponent';
-import {useAppTheme} from '../../theme/ThemeContext';
-import {filters, filterTypes} from '../../utils/filterData';
+import {filters} from '../../utils/filterData';
 import CircularProgressWithText from '../../components/CircularProgressWithText';
 import Stack from '../../components/Stack';
 
 const AnalysisScreen: React.FC = () => {
-  const {colors} = useAppTheme();
-  const [currentFilter, setCurrentFilter] = useState<filterTypes | undefined>(
-    filters[0].name,
-  );
+  const [currentFilter, setCurrentFilter] = useState(filters[0].name);
 
-  const onChangeFilter = (filter: filterTypes) => {
+  const onChangeFilter = (filter: any) => {
     setCurrentFilter(filter);
   };
 
@@ -32,6 +28,7 @@ const AnalysisScreen: React.FC = () => {
         style={styles.cardStyle}
         scrollStyle={styles.scrollCardStyle}>
         <FilterComponent
+          filters={filters}
           paddingRequired={false}
           yearlyEnabled
           currentFilter={currentFilter}

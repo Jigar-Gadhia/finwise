@@ -20,6 +20,7 @@ type ContainerProps = {
   showNoti?: boolean;
   showHeader?: boolean;
   bgColor?: keyof ReturnType<typeof useAppTheme>['colors'];
+  titleCapitalised?: boolean;
 };
 
 const Container: React.FC<ContainerProps> = ({
@@ -30,6 +31,7 @@ const Container: React.FC<ContainerProps> = ({
   showNoti = false,
   showHeader = true,
   bgColor = 'background',
+  titleCapitalised = true,
 }) => {
   const {colors} = useAppTheme();
   const {mode} = useSelector((state: RootState) => state.theme);
@@ -53,6 +55,7 @@ const Container: React.FC<ContainerProps> = ({
               showNoti ? t(strings.screenHeaders.notifications) : screenName
             }
             showNoti={showNoti}
+            titleCapitalised={titleCapitalised}
           />
         )}
         {children}

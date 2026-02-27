@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, TouchableOpacity} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity} from 'react-native';
 import IconComponent from './IconComponent';
 import {icons} from '../utils/icons';
 import {LightColors} from '../theme/colors';
@@ -8,6 +8,7 @@ import TextComponent from './TextComponent';
 import {useAppTheme} from '../theme/ThemeContext';
 import Stack from './Stack';
 import RowDevider from './RowDevider';
+import {Images} from '../utils/images';
 
 interface ProfileCardProps {
   icon?: keyof typeof icons;
@@ -18,6 +19,8 @@ interface ProfileCardProps {
   showIcon?: boolean;
   showDivider?: boolean;
   showBG?: boolean;
+  image?: keyof typeof Images;
+  showImage?: boolean;
 }
 
 const ProfileCard: React.FC<ProfileCardProps> = ({
@@ -29,6 +32,8 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
   showIcon = true,
   showDivider = false,
   showBG = true,
+  showImage = false,
+  image = 'profileInsta',
 }) => {
   const {colors} = useAppTheme();
   return (
@@ -53,6 +58,8 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
                   width={24}
                 />
               </Stack>
+            ) : showImage ? (
+              <Image source={Images[image]} style={styles.imageStyle} />
             ) : (
               <IconComponent
                 Icon={icon}
@@ -84,6 +91,11 @@ const styles = StyleSheet.create({
   },
   dividerStyle: {
     borderWidth: 0.5,
+  },
+  imageStyle: {
+    height: scale(31),
+    width: scale(31),
+    resizeMode: 'contain',
   },
 });
 

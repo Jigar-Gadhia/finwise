@@ -53,6 +53,17 @@ import ProfileFingerprint from '../assets/icons/profile/profileFingerprint.svg';
 import Password from '../assets/icons/profile/password.svg';
 import Account from '../assets/icons/profile/account.svg';
 import Notification from '../assets/icons/profile/notification.svg';
+import DownArrow from '../assets/icons/profile/downArrow.svg';
+import Website from '../assets/icons/profile/website.svg';
+import Whatsapp from '../assets/icons/profile/whatsapp.svg';
+import Insta from '../assets/icons/profile/insta.svg';
+import CustomerService from '../assets/icons/profile/customerService.svg';
+import ProfileFacebook from '../assets/icons/profile/profileFacebook.svg';
+import ProfileWhatsapp from '../assets/icons/profile/profileWhatsapp.svg';
+import ProfileInsta from '../assets/icons/profile/profileInsta.svg';
+import ProfileCamera from '../assets/icons/profile/profileCamera.svg';
+import Mic from '../assets/icons/profile/mic.svg';
+import Send from '../assets/icons/profile/send.svg';
 
 export const icons = {
   home: Home,
@@ -110,4 +121,15 @@ export const icons = {
   password: Password,
   account: Account,
   noti: Notification,
+  downArrow: DownArrow,
+  website: Website,
+  whatsapp: Whatsapp,
+  insta: Insta,
+  CustomerService,
+  ProfileFacebook,
+  ProfileInsta,
+  ProfileWhatsapp,
+  ProfileCamera,
+  Send,
+  Mic,
 };

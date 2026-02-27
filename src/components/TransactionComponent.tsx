@@ -3,11 +3,10 @@ import {StyleSheet} from 'react-native';
 import {transactionData} from '../utils/transactionData';
 import TransactionItemComponent from './TransactionItemComponent';
 import {scale} from 'react-native-size-matters';
-import {filterTypes} from '../utils/filterData';
 import Animated, {FadeIn} from 'react-native-reanimated';
 
 interface TransactionComponentProps {
-  currentFilter?: filterTypes;
+  currentFilter?: string;
 }
 
 const TransactionComponent: React.FC<TransactionComponentProps> = ({

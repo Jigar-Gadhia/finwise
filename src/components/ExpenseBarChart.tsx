@@ -5,14 +5,13 @@ import TextComponent from './TextComponent';
 import {t} from '../localization/t';
 import {strings} from '../localization';
 import IconComponent from './IconComponent';
-import {filterTypes} from '../utils/filterData';
 import {barDataByFilter} from '../utils/barData';
 import SkiaBarChart from './SkiaBarChart';
 import {LightColors} from '../theme/colors';
 import Stack from './Stack';
 
 interface ExpenseBarChartProps {
-  filter?: filterTypes;
+  filter?: 'daily' | 'weekly' | 'monthly' | 'yearly';
 }
 
 const ExpenseBarChart = ({filter = 'daily'}: ExpenseBarChartProps) => {

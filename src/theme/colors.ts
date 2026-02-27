@@ -25,6 +25,7 @@ export const LightColors = {
   placeholder: '#1B6B6B',
   title: '#093030',
   transperent: 'rgba(0,0,0,0.5)',
+  helpCard: '#DFF7E2',
 };
 
 export const DarkColors = {
@@ -43,4 +44,5 @@ export const DarkColors = {
   title: '#00D09E',
   progressInvertTrack: '#00D09E',
   progressInvertFill: '#DFF7E2',
+  helpCard: '#052224',
 };

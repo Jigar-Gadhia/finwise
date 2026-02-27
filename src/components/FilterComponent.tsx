@@ -1,25 +1,36 @@
 import React from 'react';
-import {StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  TouchableOpacity,
+  TouchableOpacityProps,
+  ViewStyle,
+} from 'react-native';
 import {scale} from 'react-native-size-matters';
 import {useAppTheme} from '../theme/ThemeContext';
-import {filters, filterTypes} from '../utils/filterData';
 import TextComponent from './TextComponent';
 import {useIsFocused} from '@react-navigation/native';
 import Animated from 'react-native-reanimated';
 import {useFadeAnimation} from '../hooks/useFadeAnimation';
 
 interface FilterComponentProps {
-  currentFilter?: filterTypes | undefined;
-  onFilterChange?: (filter: filterTypes) => void;
+  filters: {name: string}[];
+  currentFilter?: string | undefined;
+  onFilterChange?: (filter: string) => void;
   paddingRequired?: boolean;
   yearlyEnabled?: boolean;
+  btnStyle?: TouchableOpacityProps['style'];
+  containerStyle?: ViewStyle;
+  capitalised?: boolean;
 }
 
 const FilterComponent: React.FC<FilterComponentProps> = ({
-  currentFilter = 'monthly',
+  filters = [],
+  currentFilter,
   onFilterChange = () => {},
   paddingRequired = true,
-  yearlyEnabled = false,
+  capitalised = true,
+  containerStyle,
+  btnStyle,
 }) => {
   const {colors} = useAppTheme();
   const focused = useIsFocused();
@@ -33,31 +44,31 @@ const FilterComponent: React.FC<FilterComponentProps> = ({
           backgroundColor: colors.tab,
           paddingHorizontal: paddingRequired ? scale(12) : scale(5),
         },
+        containerStyle,
       ]}>
-      {filters
-        .filter(item => yearlyEnabled || item.name !== 'yearly')
-        .map((item, index) => {
-          return (
-            <TouchableOpacity
-              key={index}
-              style={[
-                styles.filterContainer,
-                currentFilter === item.name && {
-                  backgroundColor: colors.caribbeanGreen,
-                },
-              ]}
-              onPress={() => onFilterChange(item.name)}>
-              <TextComponent
-                fontSize={15}
-                capitalised
-                color={currentFilter === item.name ? 'staticBlack' : 'text'}
-                disableLineHeight
-                weight="regular">
-                {item.name}
-              </TextComponent>
-            </TouchableOpacity>
-          );
-        })}
+      {filters.map((item, index) => {
+        return (
+          <TouchableOpacity
+            key={index}
+            style={[
+              styles.filterContainer,
+              currentFilter === item.name && {
+                backgroundColor: colors.caribbeanGreen,
+              },
+              btnStyle,
+            ]}
+            onPress={() => onFilterChange(item.name)}>
+            <TextComponent
+              fontSize={15}
+              capitalised={capitalised}
+              color={currentFilter === item.name ? 'staticBlack' : 'text'}
+              disableLineHeight
+              weight="regular">
+              {item.name}
+            </TextComponent>
+          </TouchableOpacity>
+        );
+      })}
     </Animated.View>
   );
 };
