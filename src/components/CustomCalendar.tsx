@@ -46,7 +46,7 @@ const CustomCalendar = () => {
 
   const [month, setMonth] = useState(today.getMonth());
   const [year, setYear] = useState(today.getFullYear());
-  const [currentDay, setCurrentDay] = useState(today.getDay());
+  const [currentDay, setCurrentDay] = useState(today.getDate());
 
   const [showMonth, setShowMonth] = useState(false);
   const [showYear, setShowYear] = useState(false);
@@ -190,33 +190,40 @@ const CustomCalendar = () => {
 
       {/* DAYS GRID */}
       <View style={styles.grid}>
-        {calendarDays.map((day, index) => (
-          <TouchableOpacity
-            activeOpacity={0.8}
-            key={index}
-            onPress={() => setCurrentDay(day as number)}
-            style={styles.dayCell}>
-            <Stack
-              alignItems="center"
-              style={[
-                styles.activeDayCell,
-                {
-                  backgroundColor:
-                    day === currentDay
+        {calendarDays.map((day, index) => {
+          const isToday =
+            day === today.getDate() &&
+            month === today.getMonth() &&
+            year === today.getFullYear();
+
+          const isSelected = day === currentDay;
+          return (
+            <TouchableOpacity
+              activeOpacity={0.8}
+              key={index}
+              onPress={() => setCurrentDay(day as number)}
+              style={styles.dayCell}>
+              <Stack
+                alignItems="center"
+                style={[
+                  styles.activeDayCell,
+                  {
+                    backgroundColor: isSelected
                       ? colors.oceanBlue
-                      : day === today.getDay()
+                      : isToday
                       ? colors.caribbeanGreen
-                      : undefined,
-                },
-              ]}>
-              <TextComponent
-                variant="subtext"
-                color={day === today.getDay() ? 'primary' : 'text'}>
-                {day ? day : ''}
-              </TextComponent>
-            </Stack>
-          </TouchableOpacity>
-        ))}
+                      : 'transparent',
+                  },
+                ]}>
+                <TextComponent
+                  variant="subtext"
+                  color={isToday ? 'primary' : 'text'}>
+                  {day ? day : ''}
+                </TextComponent>
+              </Stack>
+            </TouchableOpacity>
+          );
+        })}
       </View>
     </Stack>
   );
