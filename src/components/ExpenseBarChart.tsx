@@ -9,6 +9,8 @@ import {barDataByFilter} from '../utils/barData';
 import SkiaBarChart from './SkiaBarChart';
 import {LightColors} from '../theme/colors';
 import Stack from './Stack';
+import {navigate} from '../utils/navigationService';
+import {screenNames} from '../utils/screenNames';
 
 interface ExpenseBarChartProps {
   filter?: 'daily' | 'weekly' | 'monthly' | 'yearly';
@@ -16,6 +18,14 @@ interface ExpenseBarChartProps {
 
 const ExpenseBarChart = ({filter = 'daily'}: ExpenseBarChartProps) => {
   const barData = barDataByFilter[filter];
+
+  const onPressSearch = () => {
+    navigate(screenNames.SearchScreen);
+  };
+
+  const onPressCalender = () => {
+    navigate(screenNames.CalenderScreen);
+  };
 
   return (
     <Stack
@@ -30,10 +40,10 @@ const ExpenseBarChart = ({filter = 'daily'}: ExpenseBarChartProps) => {
           {t(strings.common.chartHeader)}
         </TextComponent>
         <Stack row alignItems="center" gap={5}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={onPressSearch}>
             <IconComponent Icon={'search'} height={30} width={30} />
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={onPressCalender}>
             <IconComponent Icon={'calender'} height={30} width={30} />
           </TouchableOpacity>
         </Stack>

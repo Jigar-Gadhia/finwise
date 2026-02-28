@@ -39,4 +39,6 @@ export const screenNames = {
   HelpScreen: 'HelpScreen',
   OnlineSupportScreen: 'OnlineSupportScreen',
   ChatScreen: 'ChatScreen',
+  SearchScreen: 'SearchScreen',
+  CalenderScreen: 'CalenderScreen',
 };

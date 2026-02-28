@@ -32,6 +32,7 @@ const ButtonComponent: React.FC<ButtonComponentProps> = ({
         {
           backgroundColor: colors[bgColor],
           width: fullWidth ? '100%' : scale(170),
+          flexShrink: 1,
         },
         buttonStyle,
       ]}>

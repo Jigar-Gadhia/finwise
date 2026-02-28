@@ -29,6 +29,7 @@ interface InputWithLabelProps {
   bRadius?: number;
   containerStyle?: ViewStyle;
   fontSize?: number;
+  editable?: boolean;
 }
 
 const InputWithLabel: React.FC<InputWithLabelProps> = ({
@@ -46,6 +47,7 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({
   bRadius = 18,
   containerStyle,
   fontSize = 14,
+  editable = true,
 }) => {
   const [secureText, setSecureText] = useState(password);
   const [texts, setTexts] = useState(value);
@@ -54,7 +56,7 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({
     setSecureText(prev => !prev);
   };
   return (
-    <View style={{gap: scale(labelInputGap)}}>
+    <View style={{gap: scale(labelInputGap), zIndex: -1}}>
       {label && (
         <TextComponent
           variant="subtitle"
@@ -88,6 +90,7 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({
           multiline={multiLine}
           value={texts}
           onChangeText={setTexts}
+          editable={editable}
         />
         {password && (
           <TouchableOpacity

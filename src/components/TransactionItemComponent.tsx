@@ -14,10 +14,12 @@ import Stack from './Stack';
 
 interface TransactionItemComponentProps {
   item: Transaction;
+  blue?: boolean;
 }
 
 const TransactionItemComponent: React.FC<TransactionItemComponentProps> = ({
   item,
+  blue = false,
 }) => {
   const {colors} = useAppTheme();
   const {category, type, amount, frequency, occurredAt} = item;
@@ -55,7 +57,7 @@ const TransactionItemComponent: React.FC<TransactionItemComponentProps> = ({
       <Stack alignItems="flex-end" style={styles.amountStyle}>
         <TextComponent
           variant="subtitle"
-          color={type === 'income' ? 'text' : 'vividBlue'}>
+          color={type === 'income' ? 'text' : blue ? 'text' : 'vividBlue'}>
           {type === 'income'
             ? priceFormat().format(amount)
             : t(strings.common.negativeAmount, {

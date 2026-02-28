@@ -69,20 +69,10 @@ jobs:
       - name: 📦 Install Dependencies
         run: yarn install --frozen-lockfile
 
-      # ✅ Generate Keystore
-      - name: 🔐 Generate Keystore
+      # ✅ Decode Keystore
+      - name: 🔐 Decode Keystore
         run: |
-          keytool -genkeypair \
-            -v \
-            -storetype PKCS12 \
-            -keystore android/app/release.keystore \
-            -alias release-key \
-            -keyalg RSA \
-            -keysize 2048 \
-            -validity 10000 \
-            -storepass android \
-            -keypass android \
-            -dname "CN=GitHub CI, OU=Dev, O=Company, L=City, S=State, C=IN"
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > android/app/finwise-release.keystore
 
       # ✅ Gradle Permission
       - name: 🔧 Grant Gradle Permission
@@ -92,10 +82,11 @@ jobs:
       - name: 🚀 Build Release APK
         run: |
           cd android
+          ./gradlew clean
           ./gradlew assembleRelease \
-            -PKEYSTORE_PASSWORD=android \
-            -PKEY_ALIAS=release-key \
-            -PKEY_PASSWORD=android
+            -PKEYSTORE_PASSWORD="${{ secrets.ANDROID_KEYSTORE_PASSWORD }}" \
+            -PKEY_ALIAS="${{ secrets.ANDROID_KEY_ALIAS }}" \
+            -PKEY_PASSWORD="${{ secrets.ANDROID_KEY_PASSWORD }}"
 
       # ✅ Rename APK with Version Name
       - name: 📦 Rename APK

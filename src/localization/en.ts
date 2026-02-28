@@ -64,6 +64,7 @@ export const en = {
     cancel: 'Cancel',
     date: 'Date',
     category: 'Category',
+    categories: 'Categories',
     amount: 'Amount',
     expenseTitle: 'Expense Title',
     messagePlaceholder: 'Enter Message',
@@ -74,6 +75,9 @@ export const en = {
     amountSaved: 'Amount Saved',
     addSavings: 'Add Savings',
     profileName: 'John Smith',
+    datePlaceholder2: '30 /APR/2023',
+    calender: 'Calender',
+    spends: 'Spends',
   },
 
   profile: {
