@@ -54,7 +54,7 @@ const ChatScreen: React.FC = () => {
                       {
                         backgroundColor:
                           item.sender === 'bot'
-                            ? LightColors.welcomeBg
+                            ? LightColors.divider
                             : LightColors.caribbeanGreen,
                         alignSelf:
                           item.sender === 'bot' ? 'flex-start' : 'flex-end',
