@@ -135,6 +135,7 @@ export default AnimatedDropdown;
 const styles = StyleSheet.create({
   wrapper: {
     position: 'relative',
+    zIndex: 10,
   },
   dropDownText: {
     marginBottom: scale(5),

@@ -84,7 +84,13 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({
         ]}>
         <TextInput
           placeholder={placeholder}
-          style={[styles.inputStyle, {fontSize: scale(fontSize)}]}
+          style={[
+            styles.inputStyle,
+            {
+              fontSize: scale(fontSize),
+              textAlignVertical: multiLine ? 'top' : 'center',
+            },
+          ]}
           secureTextEntry={secureText}
           placeholderTextColor={colors.placeholder}
           multiline={multiLine}
@@ -142,9 +148,6 @@ const styles = StyleSheet.create({
     fontFamily: fonts.medium,
     paddingVertical: 0,
     includeFontPadding: false,
-    textAlignVertical: 'center',
-    margin: 0,
-    padding: 0,
   },
   dropdownStyle: {
     marginRight: scale(5),

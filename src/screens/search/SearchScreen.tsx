@@ -38,7 +38,7 @@ const SearchScreen: React.FC = () => {
       </Stack>
       <CardComponent>
         <Stack pt={40} ph={30}>
-          <Stack gap={30} style={styles.cardStyle}>
+          <Stack gap={30}>
             <AnimatedDropdown
               data={categoryData}
               title={t(strings.common.categories)}
@@ -94,9 +94,6 @@ const SearchScreen: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-  cardStyle: {
-    zIndex: -1,
-  },
   buttonStyle: {
     paddingVertical: scale(6),
     width: scale(160),
