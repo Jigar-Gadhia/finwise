@@ -33,6 +33,33 @@ Check out the [latest releases](https://github.com/Jigar-Gadhia/finwise/releases
 
 **Latest Version:** See [Releases](https://github.com/Jigar-Gadhia/finwise/releases/latest)
 
+## 🎨 Design
+
+### Figma Design
+
+🔗 **[View Figma Design](https://www.figma.com/design/Ukj3xkRHir1Mnzb0oEV4FB/Finance-Management-Mobile-App-UI-UX-Kit-for-Budget-Tracker-Financial-Prototype-Design--Community-?node-id=7388-3143&p=f&t=xPq9D7lqavUilQu6-0)**
+
+### Work Samples
+
+### Dark Mode
+
+<p>
+  <img src="https://github.com/user-attachments/assets/01a7cdc9-1a23-42c1-83de-c477d96f6c88" width="180" />
+  <img src="https://github.com/user-attachments/assets/c679b007-0cb4-4dea-b751-a0ebf4b73145" width="180" />
+  <img src="https://github.com/user-attachments/assets/8b94d546-f173-4d3d-a915-a4103c261c85" width="180" />
+  <img src="https://github.com/user-attachments/assets/b8acbd2e-3144-40ec-8342-56307824fca8" width="180" />
+</p>
+
+### Light Mode
+
+<p>
+  <img width="180" alt="ios1" src="https://github.com/user-attachments/assets/98b6fd0d-a8fd-4c1d-b805-1ce66178a84d" />
+  <img width="180" alt="ios2" src="https://github.com/user-attachments/assets/1d7e4002-9932-4d06-9134-6ad5eb277adb" />
+  <img width="180" alt="ios4" src="https://github.com/user-attachments/assets/a220b2ac-42cb-442e-8f76-1a746887f7f8" />
+  <img width="180" alt="ios3" src="https://github.com/user-attachments/assets/49f2d848-3d1e-4e91-a730-7a49cbe1a439" />
+</p>
+
+
 ## 📋 Prerequisites
 
 Before you begin, ensure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions up to "Creating a new application" step.
@@ -98,23 +125,6 @@ npm run ios
 ```
 
 If everything is set up correctly, you should see the FinWise app running on your emulator/simulator.
-
-## 🎨 Design
-
-### Figma Design
-
-🔗 **[View Figma Design](https://www.figma.com/design/Ukj3xkRHir1Mnzb0oEV4FB/Finance-Management-Mobile-App-UI-UX-Kit-for-Budget-Tracker-Financial-Prototype-Design--Community-?node-id=7388-3143&p=f&t=xPq9D7lqavUilQu6-0)**
-
-### Screenshots
-
-_Screenshots will be added soon_
-
-<!-- 
-Add your screenshots here using:
-![Home Screen](./screenshots/home.png)
-![Expenses](./screenshots/expenses.png)
-![Analytics](./screenshots/analytics.png)
--->
 
 ## 📚 Available Scripts
 
