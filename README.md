@@ -65,7 +65,7 @@ Check out the [latest releases](https://github.com/Jigar-Gadhia/finwise/releases
 Before you begin, ensure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions up to "Creating a new application" step.
 
 **Requirements:**
-- Node.js >= 16
+- Node.js >= 20
 - Yarn or npm
 - Xcode (for iOS development)
 - Android Studio (for Android development)
