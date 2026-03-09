@@ -1,7 +1,9 @@
 import React, {memo} from 'react';
-import {View, StyleSheet, Text as RNText} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import {Canvas, Path, Skia, Text, useFont} from '@shopify/react-native-skia';
 import {scale} from 'react-native-size-matters';
+import TextComponent from './TextComponent';
+import {useAppTheme} from '../theme/ThemeContext';
 
 const WIDTH = scale(360);
 const HEIGHT = scale(120);
@@ -18,6 +20,7 @@ const data = [
 
 const SemiPieChart = () => {
   const font = useFont(require('../assets/fonts/Poppins-Bold.ttf'), 22);
+  const {colors} = useAppTheme();
 
   if (!font) {
     return null;
@@ -107,13 +110,13 @@ const SemiPieChart = () => {
       {/* Legend */}
       <View style={styles.legend}>
         <View style={styles.legendItem}>
-          <View style={[styles.dot, {backgroundColor: '#4F8EF7'}]} />
-          <RNText style={styles.legendText}>Groceries</RNText>
+          <View style={[styles.dot, {backgroundColor: colors.vividBlue}]} />
+          <TextComponent fontSize={16}>Groceries</TextComponent>
         </View>
 
         <View style={styles.legendItem}>
-          <View style={[styles.dot, {backgroundColor: '#8EC5FF'}]} />
-          <RNText style={styles.legendText}>Others</RNText>
+          <View style={[styles.dot, {backgroundColor: colors.vividBlue}]} />
+          <TextComponent fontSize={16}>Others</TextComponent>
         </View>
       </View>
     </View>
@@ -140,9 +143,5 @@ const styles = StyleSheet.create({
     height: 10,
     borderRadius: 5,
     marginRight: 6,
-  },
-  legendText: {
-    color: 'white',
-    fontSize: 16,
   },
 });
