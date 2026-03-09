@@ -217,7 +217,15 @@ const CustomCalendar = () => {
                 ]}>
                 <TextComponent
                   variant="subtext"
-                  color={isToday ? 'primary' : isSelected ? 'divider' : 'text'}>
+                  color={
+                    isToday
+                      ? isSelected
+                        ? 'divider'
+                        : 'primary'
+                      : isSelected
+                      ? 'divider'
+                      : 'text'
+                  }>
                   {day ? day : ''}
                 </TextComponent>
               </Stack>

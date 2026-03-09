@@ -69,6 +69,7 @@ const TextComponent: React.FC<Props> = ({
 const styles = StyleSheet.create({
   text: {
     includeFontPadding: false,
+    flexShrink: 1,
   },
 });
 
